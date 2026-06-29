@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Custom Clean Light Theme Palette - SOLI AI New Brand Identity */
+  --color-primary: #2CF589; /* Mint Green */
+  --color-primary-dark: #1EDB74; /* Hover/Pressed */
+  --color-primary-light: #D6FCE7; /* Light Background Tint */
+  
+  --color-secondary-teal: #0F766E; /* Deep Teal */
+  --color-secondary-aqua: #5EEAD4; /* Soft Aqua */
+  
+  --color-neutral-main: #0F172A; /* Text Primary */
+  --color-neutral-sub: #475569; /* Text Secondary */
+  --color-border-custom: #E2E8F0; /* Border */
+  --color-bg-custom: #F8FAFC; /* Background */
+  --color-white-custom: #FFFFFF;
+  
+  --color-accent-coral: #FF6B6B; /* Soft Coral */
+  --color-accent-sand: #FDE68A; /* Warm Sand */
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-bg-custom text-neutral-main antialiased scroll-smooth;
+  }
+}
+
+/* Custom scrollbar and aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2CF589;
+}
+
+.glow-emerald {
+  box-shadow: 0 4px 24px rgba(44, 245, 137, 0.12);
+}
+
+.gradient-hero-mask {
+  background: radial-gradient(circle at 50% 115%, rgba(44, 245, 137, 0.4) 0%, rgba(94, 234, 212, 0.18) 45%, rgba(248, 250, 252, 0) 80%);
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: SOLI AI",
+  "description": "Trợ lý tiếp đón và đặt lịch tự động thông minh cho Spa, Nail Salon và Clinic",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
