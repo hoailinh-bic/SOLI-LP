@@ -50,7 +50,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
               <a
                 key={item.label}
                 href={item.href}
-                className="text-xs uppercase tracking-wider font-semibold text-slate-500 hover:text-teal-600 transition-all duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-teal-600 after:transition-all after:duration-150 whitespace-nowrap"
+                className="text-xs uppercase tracking-wider font-semibold text-slate-500 hover:text-emerald-600 transition-all duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-emerald-600 after:transition-all after:duration-150 whitespace-nowrap"
               >
                 {item.label}
               </a>
@@ -62,7 +62,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
             <button
               id="header-cta-demo"
               onClick={onOpenDemo}
-              className="bg-teal-600 hover:bg-teal-600/90 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2 active:scale-98 cursor-pointer whitespace-nowrap border-none"
+              className="bg-emerald-600 hover:bg-emerald-600/90 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2 active:scale-98 cursor-pointer whitespace-nowrap border-none"
             >
               Demo Miễn Phí
               <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-150 group-hover:translate-x-1" />
@@ -72,7 +72,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
           {/* Mobile menu button */}
           <div className="flex md:hidden items-center gap-2">
             {leadCount > 0 && (
-              <span className="bg-teal-600 text-white font-mono font-bold px-2 py-0.5 rounded-full text-[10px] animate-bounce">
+              <span className="bg-emerald-600 text-white font-mono font-bold px-2 py-0.5 rounded-full text-[10px] animate-bounce">
                 {leadCount}
               </span>
             )}
@@ -95,17 +95,17 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
               key={item.label}
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-3 py-3 rounded-xl text-base font-medium text-slate-600 hover:bg-slate-100 hover:text-teal-600 transition-colors"
+              className="block px-3 py-3 rounded-xl text-base font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600 transition-colors"
             >
               {item.label}
             </a>
           ))}
         </div>
         <div className="border-t border-slate-200/80 pt-4 flex flex-col gap-3">
-          <div className="flex items-center gap-2 bg-teal-50/50 rounded-xl px-3 py-2 text-xs text-teal-600 font-medium border border-teal-600/10">
+          <div className="flex items-center gap-2 bg-emerald-50/50 rounded-xl px-3 py-2 text-xs text-emerald-600 font-medium border border-emerald-600/10">
             <span className="relative flex h-2 w-2">
-              <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-teal-600 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-600"></span>
+              <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-600 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
             Đang phục vụ <span className="font-extrabold text-slate-900">142+</span> Salon & Clinic hàng đầu
           </div>
@@ -126,7 +126,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
               setIsMobileMenuOpen(false);
               onOpenDemo();
             }}
-            className="w-full bg-teal-600 hover:bg-teal-600/90 text-white font-bold uppercase py-3 px-4 rounded-full text-center shadow-md transition-colors flex items-center justify-center gap-2"
+            className="w-full bg-emerald-600 hover:bg-emerald-600/90 text-white font-bold uppercase py-3 px-4 rounded-full text-center shadow-md transition-colors flex items-center justify-center gap-2"
           >
             Đăng Ký Demo Ngay
             <ArrowRight className="w-4 h-4 text-white" />

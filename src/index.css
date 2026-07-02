@@ -1,27 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&family=Zalando+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Zalando Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Custom Clean Light Theme Palette - SOLI AI New Brand Identity */
-  --color-primary: #2CF589; /* Mint Green */
-  --color-primary-dark: #1EDB74; /* Hover/Pressed */
-  --color-primary-light: #D6FCE7; /* Light Background Tint */
-  
-  --color-secondary-teal: #0F766E; /* Deep Teal */
-  --color-secondary-aqua: #5EEAD4; /* Soft Aqua */
-  
-  --color-neutral-main: #0F172A; /* Text Primary */
-  --color-neutral-sub: #475569; /* Text Secondary */
-  --color-border-custom: #E2E8F0; /* Border */
-  --color-bg-custom: #F8FAFC; /* Background */
+  /* SOLI AI - Refreshed Emerald Brand Identity (redesign) */
+  --color-primary: #10b981; /* Emerald 500 */
+  --color-primary-dark: #059669; /* Emerald 600 - Hover/Pressed */
+  --color-primary-light: #d1fae5; /* Light Background Tint */
+
+  --color-secondary-teal: #0c6b52; /* Deep Emerald Teal */
+  --color-secondary-aqua: #34d399; /* Soft Aqua/Mint */
+
+  --color-neutral-main: #0d2b22; /* Text Primary - Deep Green */
+  --color-neutral-sub: #4a5f57; /* Text Secondary */
+  --color-border-custom: #d5e6dd; /* Border */
+  --color-bg-custom: #eef6f1; /* Background */
   --color-white-custom: #FFFFFF;
-  
-  --color-accent-coral: #FF6B6B; /* Soft Coral */
-  --color-accent-sand: #FDE68A; /* Warm Sand */
+
+  --color-accent-coral: #de6e4b; /* Soft Coral */
+  --color-accent-sand: #e6b45a; /* Warm Sand */
 }
 
 @layer base {
@@ -36,20 +36,99 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8FAFC;
+  background: #eef6f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E2E8F0;
+  background: #cfe3d8;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2CF589;
+  background: #10b981;
 }
 
 .glow-emerald {
-  box-shadow: 0 4px 24px rgba(44, 245, 137, 0.12);
+  box-shadow: 0 4px 24px rgba(16, 185, 129, 0.14);
 }
 
 .gradient-hero-mask {
-  background: radial-gradient(circle at 50% 115%, rgba(44, 245, 137, 0.4) 0%, rgba(94, 234, 212, 0.18) 45%, rgba(248, 250, 252, 0) 80%);
+  background: radial-gradient(circle at 50% 115%, rgba(16, 185, 129, 0.4) 0%, rgba(52, 211, 153, 0.18) 45%, rgba(238, 246, 241, 0) 80%);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== SOLI redesign keyframes (from Claude Design exports) ===== */
+@keyframes soli-aurora-a { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-30px) scale(1.12); } }
+@keyframes soli-aurora-b { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,40px) scale(1.15); } }
+@keyframes soli-aurora-c { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,50px) scale(0.9); } }
+@keyframes soli-aurora-w { 0%,100% { transform: translate(0,0) scale(1); opacity:.5; } 50% { transform: translate(-30px,20px) scale(1.12); opacity:.7; } }
+@keyframes soli-cta-glow {
+  0%,100% { box-shadow: 0 18px 40px -12px rgba(16,163,127,0.55), 0 0 0 0 rgba(16,185,129,0.45); }
+  50% { box-shadow: 0 22px 52px -10px rgba(16,163,127,0.7), 0 0 0 14px rgba(16,185,129,0); }
+}
+@keyframes soli-soft-glow {
+  0%,100% { box-shadow: 0 8px 22px -12px rgba(16,163,127,0.4), 0 0 0 0 rgba(16,185,129,0.32); }
+  50% { box-shadow: 0 12px 28px -12px rgba(16,163,127,0.5), 0 0 0 7px rgba(16,185,129,0); }
+}
+@keyframes soli-border-spin { to { transform: rotate(360deg); } }
+@keyframes soli-arrow { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@keyframes soli-float-a { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes soli-float-b { 0%,100% { transform: translateY(0); } 50% { transform: translateY(12px); } }
+@keyframes soli-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes soli-live { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: 0.35; } }
+@keyframes soli-typing { 0%,60%,100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-4px); opacity: 1; } }
+@keyframes soli-ripple { to { transform: scale(4); opacity: 0; } }
+@keyframes soli-particle { 0%,100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-22px); opacity: 1; } }
+@keyframes soli-orb-a { 0%,100%{transform:translate(0,0)} 33%{transform:translate(28px,-34px)} 66%{transform:translate(-22px,20px)} }
+@keyframes soli-orb-b { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-36px,30px)} }
+@keyframes soli-orb-c { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(24px,28px) scale(1.16)} }
+@keyframes soli-sheen { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+@keyframes soli-mesh { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(2%,-2.6%) scale(1.06)} 66%{transform:translate(-2.6%,2%) scale(1.04)} }
+@keyframes soli-fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate-fade-in { animation: soli-fade-in .6s ease both; }
+
+/* ===== Hover / focus helpers (inline styles can't express :hover) ===== */
+.soli-card { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.soli-card:hover { transform: translateY(-8px); }
+.soli-card-sm { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.soli-card-sm:hover { transform: translateY(-6px); }
+.soli-lift { transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.soli-lift:hover { transform: translateY(-3px); }
+.soli-lift-sm { transition: transform .2s ease; }
+.soli-lift-sm:hover { transform: translateY(-2px); }
+.soli-chip { transition: background .2s ease, transform .2s ease; }
+.soli-chip:hover { background: rgba(236,253,245,0.95) !important; transform: translateY(-1px); }
+.soli-input-wrap { transition: border-color .2s ease; }
+.soli-input-wrap:focus-within { border-color: rgba(16,185,129,0.6) !important; }
+.soli-input { font-family: 'Poppins', system-ui, sans-serif; }
+.soli-input::placeholder { color: #9aa8a2; }
+
+/* ===== Responsive grid collapses (mirror the design media queries) ===== */
+@media (max-width: 1080px) {
+  .soli-hero-grid { grid-template-columns: 1fr !important; gap: 64px !important; }
+  .soli-price-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .soli-price-featured { transform: none !important; }
+}
+@media (max-width: 960px) {
+  .soli-hw-grid { grid-template-columns: 1fr !important; }
+  .soli-hw-art { order: -1; max-width: 460px; margin: 0 auto; }
+}
+@media (max-width: 940px) {
+  .soli-cards-3 { grid-template-columns: 1fr !important; }
+  .soli-cta-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 900px) {
+  .soli-why-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+  .soli-price-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 560px) {
+  .soli-form-row { grid-template-columns: 1fr !important; }
 }
