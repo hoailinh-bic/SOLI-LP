@@ -38,6 +38,32 @@ export default function Footer() {
             <p style={{ margin: '18px 0 0', maxWidth: 420, fontSize: 14.5, lineHeight: 1.7, color: 'rgba(214,235,226,0.78)', fontWeight: 500 }}>
               Trợ lý tiếp đón khách hàng tự động thông minh, được thiết kế chuyên biệt cho các chuỗi dịch vụ làm đẹp.
             </p>
+
+            {/* contact block */}
+            <div style={{ marginTop: 26, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 13 }}>
+              <a
+                href="https://www.facebook.com/profile.php?id=61591210365936"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="soli-footer-link"
+                style={{ ...infoRow, textDecoration: 'none', cursor: 'pointer' }}
+              >
+                <span style={infoIconWrap}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+                </span>
+                <span><span style={{ fontWeight: 600 }}>Fanpage:</span> SOLI AI</span>
+              </a>
+              <a
+                href="mailto:hotro@soliai.vn"
+                className="soli-footer-link"
+                style={{ ...infoRow, textDecoration: 'none', cursor: 'pointer' }}
+              >
+                <span style={infoIconWrap}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3 7l9 6 9-6" /></svg>
+                </span>
+                <span><span style={{ fontWeight: 600 }}>Email:</span> hotro@soliai.vn</span>
+              </a>
+            </div>
           </div>
 
           {/* right · business info */}

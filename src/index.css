@@ -132,6 +132,8 @@
 @media (max-width: 560px) {
   .soli-form-row { grid-template-columns: 1fr !important; }
 }
+.soli-footer-link { transition: color .2s ease; }
+.soli-footer-link:hover { color: #6ee7b7 !important; }
 @media (max-width: 860px) {
   .soli-footer-grid { grid-template-columns: 1fr !important; }
 }
