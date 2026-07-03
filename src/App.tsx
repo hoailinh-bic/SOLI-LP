@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks';
 import WhySoli from './components/WhySoli';
 import Pricing from './components/Pricing';
 import CTASection from './components/CTASection';
+import Footer from './components/Footer';
 import GoogleSheetsConfigModal from './components/GoogleSheetsConfigModal';
 import { Lead } from './types';
 import { Sparkles, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
@@ -210,6 +211,9 @@ export default function App() {
         <CTASection onLeadCreate={handleLeadCreate} formRef={formRef} />
 
       </main>
+
+      {/* FOOTER */}
+      <Footer />
 
       {/* Google Sheets Config Modal */}
       <GoogleSheetsConfigModal 
