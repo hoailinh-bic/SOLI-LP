@@ -99,10 +99,12 @@ export default function GoogleSheetsConfigModal({ isOpen, onClose, onSubmitTest 
     setTestStatus({ type: "loading", message: "Đang gửi dữ liệu mẫu để kiểm tra kết nối..." });
 
     try {
-      const response = await fetch("/api/submit-lead", {
+      // Post the test row directly to the Google Apps Script webhook.
+      // text/plain avoids the CORS preflight that Apps Script cannot answer.
+      const response = await fetch(webhookUrl.trim(), {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "text/plain;charset=utf-8"
         },
         body: JSON.stringify({
           fullName: "Khách hàng Thử nghiệm",
@@ -111,14 +113,20 @@ export default function GoogleSheetsConfigModal({ isOpen, onClose, onSubmitTest 
           branches: "1",
           submittedAt: new Date().toLocaleString("vi-VN"),
           source: "demo_form",
-          email: "test@soliai.vn",
-          customWebhookUrl: webhookUrl.trim()
+          email: "test@soliai.vn"
         })
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data: any;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        data = { raw: text };
+      }
+      const synced = data.status === "success" || data.result === "success";
 
-      if (response.ok && data.success && data.status !== "local_only") {
+      if (response.ok && synced) {
         setTestStatus({
           type: "success",
           message: "Chúc mừng! Kết nối thành công. Dòng thử nghiệm đã được lưu vào Google Sheets."

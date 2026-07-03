@@ -10,6 +10,11 @@ import GoogleSheetsConfigModal from './components/GoogleSheetsConfigModal';
 import { Lead } from './types';
 import { Sparkles, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 
+// Google Apps Script Web App endpoint (same webhook used by the download form).
+// Leads are posted directly from the browser so the static production build
+// does not depend on the Express server (/api/submit-lead).
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrq8QYXkXZ6UzgdPnDa0lTlJhE6TcHZF4xY-egUMabcHKXk-aX1ZLm4Zhbi1Vi_ukxGg/exec";
+
 const INITIAL_LEADS: Lead[] = [
   {
     id: "LD-8302",
@@ -100,13 +105,14 @@ export default function App() {
 
     saveLeadsToStorage([newLead, ...leads]);
 
-    // Send to Express backend API to sync with Google Sheet
+    // Send directly to Google Apps Script webhook to sync with Google Sheet.
+    // Content-Type text/plain avoids the CORS preflight that Apps Script cannot answer.
     try {
-      const customWebhookUrl = localStorage.getItem("google_sheets_webhook_url") || "";
-      const response = await fetch("/api/submit-lead", {
+      const webhookUrl = localStorage.getItem("google_sheets_webhook_url") || SCRIPT_URL;
+      const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "text/plain;charset=utf-8"
         },
         body: JSON.stringify({
           fullName: name,
@@ -115,25 +121,28 @@ export default function App() {
           branches: branches,
           submittedAt: timeStr,
           source: source,
-          email: email || "",
-          customWebhookUrl
+          email: email || ""
         })
       });
-      const data = await response.json();
-      console.log("Google Sheets sync response:", data);
-      
-      if (response.ok && data.success) {
-        if (data.status === "local_only") {
-          return {
-            success: false,
-            message: "Google Sheets Webhook chưa được thiết lập. Vui lòng cấu hình kết nối Google Sheet."
-          };
-        }
+      const text = await response.text();
+      console.log("Google Sheets sync response:", text);
+
+      let synced = false;
+      try {
+        const data = JSON.parse(text);
+        synced = data.status === "success" || data.result === "success";
+      } catch (e) {
+        synced =
+          text.includes('"status":"success"') || text.includes('"result":"success"') ||
+          text.includes('"status": "success"') || text.includes('"result": "success"');
+      }
+
+      if (response.ok && synced) {
         return { success: true };
       } else {
         return {
           success: false,
-          message: data.error || data.message || "Gửi dữ liệu lên Google Sheets thất bại."
+          message: "Gửi dữ liệu lên Google Sheets thất bại."
         };
       }
     } catch (err: any) {
