@@ -13,7 +13,7 @@ import { Sparkles, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 // Google Apps Script Web App endpoint (same webhook used by the download form).
 // Leads are posted directly from the browser so the static production build
 // does not depend on the Express server (/api/submit-lead).
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrq8QYXkXZ6UzgdPnDa0lTlJhE6TcHZF4xY-egUMabcHKXk-aX1ZLm4Zhbi1Vi_ukxGg/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyN6wftIBhvzbGT8Pzalv07prwMHEXdcuJtlNIUPh7isbLAW1Za7zAC8xR8QjiRbmSgpA/exec";
 
 const INITIAL_LEADS: Lead[] = [
   {
