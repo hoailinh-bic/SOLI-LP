@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyN6wftIBhvzbGT8Pzalv07prwMHEXdcuJtlNIUPh7isbLAW1Za7zAC8xR8QjiRbmSgpA/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrq8QYXkXZ6UzgdPnDa0lTlJhE6TcHZF4xY-egUMabcHKXk-aX1ZLm4Zhbi1Vi_ukxGg/exec";
 const DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1Os6dZOPr5DBLdb_FWfsamlm11902VsFB";
 
 interface CTASectionProps {
