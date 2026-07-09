@@ -10,7 +10,7 @@ export default function Privacy() {
 
         {/* Version / effective date */}
         <p className="mt-4 text-sm font-mono text-neutral-sub">
-          Phiên bản: 1.0 Hiệu lực từ: {'{{Ngày}}'}
+          Phiên bản: 1.0 Hiệu lực từ: 09/07/2026
         </p>
 
         {/* Intro */}
