@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const infoRow: React.CSSProperties = {
   display: 'flex', alignItems: 'flex-start', gap: 11,
@@ -101,6 +102,14 @@ export default function Footer() {
             <p style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500 }}>
               © 2026 SOLI AI. All rights reserved.
             </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+              <Link to="/terms" className="soli-footer-link" style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500, textDecoration: 'none' }}>
+                Điều khoản sử dụng
+              </Link>
+              <Link to="/privacy" className="soli-footer-link" style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500, textDecoration: 'none' }}>
+                Chính sách bảo mật
+              </Link>
+            </div>
             <p style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500 }}>
               Made with <span style={{ color: '#34d399' }}>❤</span> in Vietnam
             </p>

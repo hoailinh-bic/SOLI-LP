@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrq8QYXkXZ6UzgdPnDa0lTlJhE6TcHZF4xY-egUMabcHKXk-aX1ZLm4Zhbi1Vi_ukxGg/exec";
 const DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1Os6dZOPr5DBLdb_FWfsamlm11902VsFB";
@@ -352,6 +353,10 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                     </span>
                   </button>
+
+                  <p style={{ margin: '12px 0 0', fontSize: 11.5, lineHeight: 1.55, color: '#7c8a83', fontWeight: 500, textAlign: 'center' }}>
+                    Bằng việc gửi thông tin, bạn đồng ý với <Link to="/terms" style={{ color: '#0c6b52', fontWeight: 600, textDecoration: 'underline' }}>Điều khoản sử dụng</Link> và <Link to="/privacy" style={{ color: '#0c6b52', fontWeight: 600, textDecoration: 'underline' }}>Chính sách bảo mật</Link> của SOLI AI.
+                  </p>
                 </form>
               </>
             )}
