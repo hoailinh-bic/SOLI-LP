@@ -25,14 +25,14 @@ import {
 
    LƯU Ý CHO DEV: thông tin ngân hàng bên dưới là PLACEHOLDER.
    Thay BANK_INFO + ảnh QR (BANK_INFO.qrSrc) bằng dữ liệu thật.
-   Mã CK SOLI-XXXXXX do người dùng copy từ màn in-app, không sinh ở đây.
+   Mã CK SOLIXXXXXX do người dùng copy từ màn in-app, không sinh ở đây.
    ============================================================ */
 
 const BANK_INFO = {
   bankName: 'VPBank',
   accountNo: '18819193939',
   accountHolder: 'CÔNG TY CỔ PHẦN CÔNG NGHỆ EVOL',
-  memo: 'SOLI-XXXXXX',
+  memo: 'SOLIXXXXXX',
   // Hotline vẫn là placeholder trong nội dung mới nhất — thay khi có số thật.
   hotline: '[Số hotline]',
   hotlineTel: 'tel:+84000000000',
@@ -112,7 +112,7 @@ const STEPS = [
     title: 'Bước 2 — Ghi đúng nội dung chuyển khoản',
     body: (
       <>
-        Nhập mã tham chiếu <code className="rounded bg-primary-light px-1.5 py-0.5 font-mono font-bold text-secondary-teal">SOLI-XXXXXX</code>{' '}
+        Nhập mã tham chiếu <code className="rounded bg-primary-light px-1.5 py-0.5 font-mono font-bold text-secondary-teal">SOLIXXXXXX</code>{' '}
         (hiển thị trên màn hình “Chờ xác nhận thanh toán” trong app) vào ô nội dung/lời nhắn chuyển khoản. Đây là cách chúng tôi đối chiếu đúng tài khoản của bạn.
       </>
     ),
@@ -123,7 +123,7 @@ const STEPS = [
     body: (
       <>
         Nhắn cho chúng tôi qua Zalo OA, Fanpage hoặc hotline kèm mã{' '}
-        <code className="rounded bg-primary-light px-1.5 py-0.5 font-mono font-bold text-secondary-teal">SOLI-XXXXXX</code>. Ops sẽ đối soát và kích hoạt tài khoản trong giờ làm việc.
+        <code className="rounded bg-primary-light px-1.5 py-0.5 font-mono font-bold text-secondary-teal">SOLIXXXXXX</code>. Ops sẽ đối soát và kích hoạt tài khoản trong giờ làm việc.
       </>
     ),
   },
@@ -141,7 +141,7 @@ const NOTES = [
     body: (
       <>
         <b className="text-neutral-main">Ghi đúng nội dung chuyển khoản</b> (mã{' '}
-        <code className="font-mono text-secondary-teal">SOLI-XXXXXX</code>) để đối soát nhanh và chính xác.
+        <code className="font-mono text-secondary-teal">SOLIXXXXXX</code>) để đối soát nhanh và chính xác.
       </>
     ),
   },
@@ -183,7 +183,7 @@ const FAQS = [
   {
     q: (
       <>
-        Tôi không thấy mã <code className="font-mono text-secondary-teal">SOLI-XXXXXX</code> ở đâu?
+        Tôi không thấy mã <code className="font-mono text-secondary-teal">SOLIXXXXXX</code> ở đâu?
       </>
     ),
     a: (
@@ -361,7 +361,7 @@ export default function PaymentGuide() {
                 className="inline-block rounded-md px-2 py-0.5 font-mono font-extrabold"
                 style={{ background: '#fff', border: '1px solid #e6b45a', color: '#92670A' }}
               >
-                SOLI-XXXXXX
+                SOLIXXXXXX
               </span>{' '}
               lấy từ màn hình “Chờ xác nhận thanh toán” trong app. Thiếu mã này, việc đối soát sẽ chậm hơn.
             </div>
@@ -429,7 +429,7 @@ export default function PaymentGuide() {
           <div className="p-6">
             <SectionTitle num={<Check size={15} strokeWidth={2.6} />}>Đã chuyển khoản? Báo cho chúng tôi</SectionTitle>
             <p className="mb-4 text-[14px] leading-relaxed text-neutral-sub">
-              Gửi kèm mã <b className="text-secondary-teal">SOLI-XXXXXX</b> qua một trong các kênh dưới đây để đối soát nhanh hơn.
+              Gửi kèm mã <b className="text-secondary-teal">SOLIXXXXXX</b> qua một trong các kênh dưới đây để đối soát nhanh hơn.
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
               <a
