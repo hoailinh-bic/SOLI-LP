@@ -102,7 +102,10 @@ export default function Footer() {
             <p style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500 }}>
               © 2026 SOLI AI. All rights reserved.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+              <Link to="/huong-dan-thanh-toan" className="soli-footer-link" style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500, textDecoration: 'none' }}>
+                Hướng dẫn thanh toán
+              </Link>
               <Link to="/terms" className="soli-footer-link" style={{ margin: 0, fontSize: 12.5, color: 'rgba(214,235,226,0.55)', fontWeight: 500, textDecoration: 'none' }}>
                 Điều khoản sử dụng
               </Link>
