@@ -136,6 +136,8 @@
 .soli-footer-link:hover { color: #6ee7b7 !important; }
 @media (max-width: 860px) {
   .soli-footer-grid { grid-template-columns: 1fr !important; }
+  /* Trên mobile (1 cột) bỏ offset căn ngang heading để không tạo khoảng trống thừa */
+  .soli-footer-right { margin-top: 0 !important; }
 }
 @media (max-width: 560px) {
   .soli-footer-bottom { flex-direction: column; align-items: flex-start !important; gap: 6px !important; }

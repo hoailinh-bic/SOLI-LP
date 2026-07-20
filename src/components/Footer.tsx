@@ -67,8 +67,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* right · business info */}
-          <div>
+          {/* right · business info — đẩy heading xuống ngang hàng dòng đầu của mô tả bên trái
+               (logo cao 40px + margin-top mô tả 18px = 58px). Bỏ offset này trên mobile qua .soli-footer-right */}
+          <div className="soli-footer-right" style={{ marginTop: 58 }}>
             <h4 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, letterSpacing: '1.2px', color: '#8fe3c6', textTransform: 'uppercase' }}>
               Thông tin doanh nghiệp
             </h4>
