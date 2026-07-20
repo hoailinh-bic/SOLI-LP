@@ -26,22 +26,23 @@ export default function Footer() {
       <div aria-hidden="true" style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 'min(720px, 80%)', height: 1, background: 'linear-gradient(90deg, transparent, rgba(52,211,153,0.55), transparent)' }} />
       <div aria-hidden="true" style={{ position: 'absolute', top: -140, left: '50%', transform: 'translateX(-50%)', width: 560, height: 280, borderRadius: '50%', background: 'radial-gradient(circle at 50% 100%, rgba(16,185,129,0.14), transparent 70%)', filter: 'blur(30px)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', maxWidth: 980, margin: '0 auto', padding: 'clamp(56px,7vw,90px) clamp(24px,5vw,48px) 0' }}>
+      <div style={{ position: 'relative', maxWidth: 1160, margin: '0 auto', padding: 'clamp(56px,7vw,90px) clamp(24px,5vw,80px) 0' }}>
 
-        {/* main grid — 2 cột cân đối 50/50, gom lại gần nhau, cùng điểm bắt đầu theo chiều dọc */}
-        <div className="soli-footer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(28px,4vw,56px)', alignItems: 'flex-start' }}>
+        {/* main grid — cùng trục căn lề (max-width 1160 + padding clamp(24px,5vw,80px)) với các section chính phía trên.
+             2 cột cân đối 50/50, gap vừa phải, cùng điểm bắt đầu theo chiều dọc */}
+        <div className="soli-footer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(36px,4vw,72px)', alignItems: 'flex-start' }}>
 
           {/* left · brand */}
           <div>
             <a href="#" className="soli-lift-sm" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
               <img src="/logo.png" alt="SOLI AI" style={{ height: 40, width: 'auto', objectFit: 'contain', display: 'block' }} />
             </a>
-            <p style={{ margin: '18px 0 0', maxWidth: 360, fontSize: 14.5, lineHeight: 1.7, color: 'rgba(214,235,226,0.78)', fontWeight: 500, textWrap: 'balance' } as React.CSSProperties}>
+            <p style={{ margin: '18px 0 0', maxWidth: 420, fontSize: 14.5, lineHeight: 1.7, color: 'rgba(214,235,226,0.78)', fontWeight: 500, textWrap: 'balance' } as React.CSSProperties}>
               Trợ lý tiếp đón khách hàng tự động thông minh, được thiết kế chuyên biệt cho các chuỗi dịch vụ làm đẹp.
             </p>
 
             {/* contact block */}
-            <div style={{ marginTop: 26, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 13, maxWidth: 360 }}>
+            <div style={{ marginTop: 26, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 13, maxWidth: 420 }}>
               <a
                 href="https://www.facebook.com/profile.php?id=61591210365936"
                 target="_blank"
@@ -73,7 +74,7 @@ export default function Footer() {
             <h4 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, letterSpacing: '1.2px', color: '#8fe3c6', textTransform: 'uppercase' }}>
               Thông tin doanh nghiệp
             </h4>
-            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 380 }}>
+            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 420 }}>
               <div style={infoRow}>
                 <span style={infoIconWrap}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01" /></svg>
