@@ -36,12 +36,12 @@ export default function Footer() {
             <a href="#" className="soli-lift-sm" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
               <img src="/logo.png" alt="SOLI AI" style={{ height: 40, width: 'auto', objectFit: 'contain', display: 'block' }} />
             </a>
-            <p style={{ margin: '18px 0 0', maxWidth: 420, fontSize: 14.5, lineHeight: 1.7, color: 'rgba(214,235,226,0.78)', fontWeight: 500 }}>
+            <p style={{ margin: '18px 0 0', maxWidth: 360, fontSize: 14.5, lineHeight: 1.7, color: 'rgba(214,235,226,0.78)', fontWeight: 500, textWrap: 'balance' } as React.CSSProperties}>
               Trợ lý tiếp đón khách hàng tự động thông minh, được thiết kế chuyên biệt cho các chuỗi dịch vụ làm đẹp.
             </p>
 
             {/* contact block */}
-            <div style={{ marginTop: 26, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 13 }}>
+            <div style={{ marginTop: 26, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 13, maxWidth: 360 }}>
               <a
                 href="https://www.facebook.com/profile.php?id=61591210365936"
                 target="_blank"
@@ -72,7 +72,7 @@ export default function Footer() {
             <h4 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, letterSpacing: '1.2px', color: '#8fe3c6', textTransform: 'uppercase' }}>
               Thông tin doanh nghiệp
             </h4>
-            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 380 }}>
               <div style={infoRow}>
                 <span style={infoIconWrap}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01" /></svg>
@@ -89,7 +89,7 @@ export default function Footer() {
                 <span style={infoIconWrap}>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
                 </span>
-                <span>Địa chỉ: Căn H5, 208 Bùi Văn Ba, Phường Tân Thuận, TP. Hồ Chí Minh</span>
+                <span style={{ textWrap: 'pretty' } as React.CSSProperties}>Địa chỉ: Căn H5, 208 Bùi Văn Ba, Phường Tân Thuận, TP. Hồ Chí Minh</span>
               </div>
             </div>
           </div>
