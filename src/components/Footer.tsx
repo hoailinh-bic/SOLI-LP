@@ -26,10 +26,10 @@ export default function Footer() {
       <div aria-hidden="true" style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 'min(720px, 80%)', height: 1, background: 'linear-gradient(90deg, transparent, rgba(52,211,153,0.55), transparent)' }} />
       <div aria-hidden="true" style={{ position: 'absolute', top: -140, left: '50%', transform: 'translateX(-50%)', width: 560, height: 280, borderRadius: '50%', background: 'radial-gradient(circle at 50% 100%, rgba(16,185,129,0.14), transparent 70%)', filter: 'blur(30px)', pointerEvents: 'none' }} />
 
-      <div style={{ position: 'relative', maxWidth: 1160, margin: '0 auto', padding: 'clamp(56px,7vw,90px) clamp(24px,5vw,80px) 0' }}>
+      <div style={{ position: 'relative', maxWidth: 980, margin: '0 auto', padding: 'clamp(56px,7vw,90px) clamp(24px,5vw,48px) 0' }}>
 
-        {/* main grid */}
-        <div className="soli-footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 'clamp(36px,5vw,72px)', alignItems: 'flex-start' }}>
+        {/* main grid — 2 cột cân đối 50/50, gom lại gần nhau, cùng điểm bắt đầu theo chiều dọc */}
+        <div className="soli-footer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(28px,4vw,56px)', alignItems: 'flex-start' }}>
 
           {/* left · brand */}
           <div>
