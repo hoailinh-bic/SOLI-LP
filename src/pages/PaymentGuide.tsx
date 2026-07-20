@@ -29,15 +29,15 @@ import {
    ============================================================ */
 
 const BANK_INFO = {
-  bankName: '[Tên ngân hàng]',
-  accountNo: '0000 0000 0000',
+  bankName: 'VPBank',
+  accountNo: '18819193939',
   accountHolder: 'CÔNG TY CỔ PHẦN CÔNG NGHỆ EVOL',
   memo: 'SOLI-XXXXXX',
+  // Hotline vẫn là placeholder trong nội dung mới nhất — thay khi có số thật.
   hotline: '[Số hotline]',
   hotlineTel: 'tel:+84000000000',
-  // Thay bằng ảnh QR thật, ví dụ: '/qr-soli-ai.png'
-  // hoặc VietQR động: https://img.vietqr.io/image/<BANK_BIN>-<STK>-compact2.png?accountName=SOLI%20AI
-  qrSrc: '' as string,
+  // Ảnh QR VietQR thật (VPBank · CÔNG TY CỔ PHẦN CÔNG NGHỆ EVOL) đặt trong public/.
+  qrSrc: '/qr-vietqr.png',
 };
 
 const CONTACT = {
@@ -173,7 +173,7 @@ const NOTES = [
     kind: 'warn' as const,
     body: (
       <>
-        <b className="text-neutral-main">Chưa cần thanh toán ngay?</b> Bạn vẫn có thể quay lại app và hoàn tất sau — gói sẽ được kích hoạt ngay khi chúng tôi nhận được chuyển khoản.
+        <b className="text-neutral-main">Chưa cần thanh toán ngay?</b> Bạn vẫn có thể hoàn tất sau — gói sẽ được kích hoạt ngay khi chúng tôi nhận được chuyển khoản.
       </>
     ),
   },
@@ -302,7 +302,11 @@ export default function PaymentGuide() {
             <div className="mx-auto w-full max-w-[260px] text-center">
               <div className="grid aspect-square place-items-center overflow-hidden rounded-2xl border border-border-custom bg-bg-custom p-3">
                 {BANK_INFO.qrSrc ? (
-                  <img src={BANK_INFO.qrSrc} alt="Mã QR chuyển khoản SOLI AI" className="h-full w-full object-contain" />
+                  <img
+                    src={BANK_INFO.qrSrc}
+                    alt="Mã QR chuyển khoản VPBank — CÔNG TY CỔ PHẦN CÔNG NGHỆ EVOL"
+                    className="h-full w-full object-contain"
+                  />
                 ) : (
                   <div className="grid place-items-center gap-2 p-4 text-neutral-sub">
                     <QrCode size={56} strokeWidth={1.4} className="opacity-50" />
