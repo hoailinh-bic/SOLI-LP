@@ -64,7 +64,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
               onClick={onOpenDemo}
               className="bg-emerald-600 hover:bg-emerald-600/90 text-white font-bold text-xs uppercase px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2 active:scale-98 cursor-pointer whitespace-nowrap border-none"
             >
-              Demo Miễn Phí
+              Trải nghiệm SOLI AI
               <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-150 group-hover:translate-x-1" />
             </button>
           </div>
