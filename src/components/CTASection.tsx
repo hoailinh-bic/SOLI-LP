@@ -272,7 +272,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
           <div style={{ ...cardShell, padding: '30px 30px' }}>
             <div style={{ display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 8, padding: '7px 13px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)' }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
-              <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.8px', color: '#0c6b52' }}>FORM ĐĂNG KÝ TRẢI NGHIỆM DEMO</span>
+              <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.8px', color: '#0c6b52' }}>FORM ĐĂNG KÝ TRẢI NGHIỆM</span>
             </div>
             <h3 style={{ margin: '16px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(20px,2.2vw,26px)', letterSpacing: '-0.4px', color: '#0d2b22' }}>Đăng ký trải nghiệm SOLI AI miễn phí</h3>
 
