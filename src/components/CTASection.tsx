@@ -182,10 +182,10 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
           <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Không còn nỗi lo bỏ lỡ khách hàng hay phản hồi trì trệ.<br />Hãy lựa chọn giải pháp phù hợp nhất với cửa hàng của bạn ngay hôm nay!</p>
         </div>
 
-        {/* 2 cards */}
-        <div className="soli-cta-grid" style={{ display: 'grid', gridTemplateColumns: '1.14fr 0.86fr', gap: 24, alignItems: 'stretch' }}>
+        {/* 2 full-width stacked blocks */}
+        <div className="soli-cta-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'clamp(28px,4vw,44px)', alignItems: 'stretch' }}>
 
-          {/* LEFT · demo registration form */}
+          {/* Registration · full-width (top) */}
           <div style={{ ...cardShell, padding: '30px 30px' }}>
             <div style={{ display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 8, padding: '7px 13px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)' }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
@@ -279,7 +279,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
             )}
           </div>
 
-          {/* RIGHT · lead magnet / download */}
+          {/* Lead magnet / download · full-width (below) */}
           <div style={{ ...cardShell, padding: '30px 28px' }}>
             {/* playbook preview */}
             <div style={{ position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', gap: 16, padding: 20, borderRadius: 18, background: 'linear-gradient(150deg, rgba(13,43,34,0.96), rgba(12,107,82,0.94))', boxShadow: '0 20px 44px -22px rgba(11,74,57,0.6)' }}>
