@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import PainPoints from './components/PainPoints';
@@ -55,6 +56,16 @@ export default function App() {
   const [isSheetsModalOpen, setIsSheetsModalOpen] = useState(false);
   const formRef = useRef<HTMLDivElement | null>(null);
 
+  const navigate = useNavigate();
+
+  // Backward-compat: old shared deep-links (…/#consultation) redirect client-side to the
+  // dedicated /consultation route (no full reload) so previously shared links keep working.
+  useEffect(() => {
+    if (window.location.hash === '#consultation') {
+      navigate('/consultation', { replace: true });
+    }
+  }, [navigate]);
+
   // Load leads on mount
   useEffect(() => {
     const cachedLeads = localStorage.getItem('soli_ai_leads');
@@ -68,21 +79,6 @@ export default function App() {
       setLeads(INITIAL_LEADS);
       localStorage.setItem('soli_ai_leads', JSON.stringify(INITIAL_LEADS));
     }
-  }, []);
-
-  // Deep-link: after mount/hydration, scroll to the section named in the URL hash
-  // (e.g. https://www.soliai.vn/#consultation). React renders content after the browser's
-  // native hash-jump, so we re-trigger the scroll once the target element exists in the DOM.
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (!hash) return;
-    const id = decodeURIComponent(hash.slice(1));
-    const scrollToHash = () => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-    const t = window.setTimeout(scrollToHash, 350);
-    return () => window.clearTimeout(t);
   }, []);
 
   // Update localStorage when leads change
