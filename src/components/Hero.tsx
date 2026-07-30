@@ -159,7 +159,7 @@ export default function Hero({ onOpenDemo, onLeadCreate }: HeroProps) {
                 className="soli-lift-sm"
                 style={{ position: 'relative', overflow: 'hidden', display: 'inline-flex', alignItems: 'center', gap: 14, padding: '22px 38px', border: 'none', borderRadius: 16, cursor: 'pointer', background: 'linear-gradient(135deg,#10b981 0%,#059669 100%)', animation: 'soli-cta-glow 2.8s ease-in-out infinite' }}
               >
-                <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 18, letterSpacing: '0.6px', color: '#fff' }}>TRẢI NGHIỆM NGAY</span>
+                <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 18, letterSpacing: '0.6px', color: '#fff' }}>ĐĂNG KÝ NGAY</span>
                 <span style={{ display: 'inline-flex', animation: 'soli-arrow 1.6s ease-in-out infinite' }}>
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </span>
