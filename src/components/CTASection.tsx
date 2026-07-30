@@ -7,7 +7,6 @@ const DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1Os6dZOPr5D
 interface CTASectionProps {
   onLeadCreate: (name: string, phone: string, bizName: string, branches: '1' | '2-3' | 'over-3', source: 'demo_form' | 'resource_download', email?: string) => Promise<{ success: boolean; message?: string }>;
   formRef: React.RefObject<HTMLDivElement | null>;
-  variant?: 'landing' | 'consultation';
 }
 
 const BRANCH_OPTIONS: { value: '1' | '2-3' | 'over-3'; label: string }[] = [
@@ -50,7 +49,7 @@ const fieldLabel: React.CSSProperties = {
   fontFamily: "'Zalando Sans'", fontWeight: 600, fontSize: 12, color: '#0c6b52', marginBottom: 8
 };
 
-export default function CTASection({ onLeadCreate, formRef, variant = 'landing' }: CTASectionProps) {
+export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
   // Card 1: Download resource
   const [downloadEmail, setDownloadEmail] = useState('');
   const [downloadPhone, setDownloadPhone] = useState('');
@@ -282,7 +281,6 @@ export default function CTASection({ onLeadCreate, formRef, variant = 'landing' 
       </section>
 
       {/* ===== Section 2 · Tải tài liệu miễn phí (nền + hiệu ứng ĐỒNG BỘ với các section khác) ===== */}
-      {variant !== 'consultation' && (
       <section
         style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(64px,8vw,110px) clamp(24px,5vw,80px)', background: 'radial-gradient(130% 120% at 12% 0%, #f4fbf7 0%, #e7f4ec 42%, #dcefe4 100%)' }}
       >
@@ -373,7 +371,6 @@ export default function CTASection({ onLeadCreate, formRef, variant = 'landing' 
           </div>
         </div>
       </section>
-      )}
     </>
   );
 }

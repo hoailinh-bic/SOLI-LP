@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, FileSpreadsheet } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   onOpenDemo: () => void;
@@ -29,7 +28,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
     { label: 'Giải pháp', href: '#how-it-works' },
     { label: 'Tại sao chọn Soli', href: '#why-soli' },
     { label: 'Bảng giá', href: '#pricing' },
-    { label: 'Tư vấn', href: '/consultation' }
+    { label: 'Tư vấn', href: '#consultation' }
   ];
 
   return (
@@ -47,12 +46,15 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
 
           {/* Desktop Nav - Centered */}
           <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-6 lg:gap-8">
-            {menuItems.map((item) => {
-              const navClass = "text-xs uppercase tracking-wider font-semibold text-slate-500 hover:text-emerald-600 transition-all duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-emerald-600 after:transition-all after:duration-150 whitespace-nowrap";
-              return item.href.startsWith('/')
-                ? <Link key={item.label} to={item.href} className={navClass}>{item.label}</Link>
-                : <a key={item.label} href={item.href} className={navClass}>{item.label}</a>;
-            })}
+            {menuItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-xs uppercase tracking-wider font-semibold text-slate-500 hover:text-emerald-600 transition-all duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-emerald-600 after:transition-all after:duration-150 whitespace-nowrap"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
           {/* Right Actions */}
@@ -88,13 +90,16 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
       {/* Mobile Menu */}
       <div className={`absolute top-full left-0 right-0 bg-slate-50 border-b border-slate-200/80 shadow-lg px-4 pb-6 pt-2 flex flex-col gap-3 transition-all duration-300 origin-top ${isMobileMenuOpen ? 'scale-y-100 opacity-100 visible' : 'scale-y-95 opacity-0 invisible h-0 pointer-events-none p-0'}`}>
         <div className="space-y-1 py-2">
-          {menuItems.map((item) => {
-            const mClass = "block px-3 py-3 rounded-xl text-base font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600 transition-colors";
-            const close = () => setIsMobileMenuOpen(false);
-            return item.href.startsWith('/')
-              ? <Link key={item.label} to={item.href} onClick={close} className={mClass}>{item.label}</Link>
-              : <a key={item.label} href={item.href} onClick={close} className={mClass}>{item.label}</a>;
-          })}
+          {menuItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-3 py-3 rounded-xl text-base font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
         <div className="border-t border-slate-200/80 pt-4 flex flex-col gap-3">
           <div className="flex items-center gap-2 bg-emerald-50/50 rounded-xl px-3 py-2 text-xs text-emerald-600 font-medium border border-emerald-600/10">
