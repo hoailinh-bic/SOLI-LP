@@ -1,5 +1,5 @@
 // Custom smooth-scroll with a controllable duration.
-// Used ONLY for #consultation navigation, so the rest of the site keeps its
+// Used ONLY for #pre-register navigation, so the rest of the site keeps its
 // default (browser) scroll behavior and speed.
 export function smoothScrollToId(
   id: string,

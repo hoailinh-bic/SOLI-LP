@@ -57,7 +57,7 @@ export default function App() {
   const formRef = useRef<HTMLDivElement | null>(null);
 
   // Deep-link: after mount/hydration, smooth-scroll to the section named in the URL hash
-  // (e.g. https://www.soliai.vn/#consultation). React renders content after the browser's
+  // (e.g. https://www.soliai.vn/#pre-register). React renders content after the browser's
   // native hash-jump, so we re-trigger the scroll once the target element exists in the DOM.
   useEffect(() => {
     const hash = window.location.hash;

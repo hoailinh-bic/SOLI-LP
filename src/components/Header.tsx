@@ -29,7 +29,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
     { label: 'Giải pháp', href: '#how-it-works' },
     { label: 'Tại sao chọn Soli', href: '#why-soli' },
     { label: 'Bảng giá', href: '#pricing' },
-    { label: 'Tư vấn', href: '#consultation' }
+    { label: 'Tư vấn', href: '#pre-register' }
   ];
 
   return (
@@ -51,7 +51,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
               <a
                 key={item.label}
                 href={item.href}
-                onClick={item.href === '#consultation' ? (e) => { e.preventDefault(); smoothScrollToId('consultation', { duration: 350, offset: 100 }); history.pushState(null, '', '#consultation'); } : undefined}
+                onClick={item.href === '#pre-register' ? (e) => { e.preventDefault(); smoothScrollToId('pre-register', { duration: 350, offset: 100 }); history.pushState(null, '', '#pre-register'); } : undefined}
                 className="text-xs uppercase tracking-wider font-semibold text-slate-500 hover:text-emerald-600 transition-all duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-emerald-600 after:transition-all after:duration-150 whitespace-nowrap"
               >
                 {item.label}
@@ -96,7 +96,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
             <a
               key={item.label}
               href={item.href}
-              onClick={(e) => { setIsMobileMenuOpen(false); if (item.href === '#consultation') { e.preventDefault(); smoothScrollToId('consultation', { duration: 350, offset: 100 }); history.pushState(null, '', '#consultation'); } }}
+              onClick={(e) => { setIsMobileMenuOpen(false); if (item.href === '#pre-register') { e.preventDefault(); smoothScrollToId('pre-register', { duration: 350, offset: 100 }); history.pushState(null, '', '#pre-register'); } }}
               className="block px-3 py-3 rounded-xl text-base font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600 transition-colors"
             >
               {item.label}
