@@ -70,6 +70,21 @@ export default function App() {
     }
   }, []);
 
+  // Deep-link: after mount/hydration, scroll to the section named in the URL hash
+  // (e.g. https://www.soliai.vn/#consultation). React renders content after the browser's
+  // native hash-jump, so we re-trigger the scroll once the target element exists in the DOM.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    const scrollToHash = () => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const t = window.setTimeout(scrollToHash, 350);
+    return () => window.clearTimeout(t);
+  }, []);
+
   // Update localStorage when leads change
   const saveLeadsToStorage = (updated: Lead[]) => {
     setLeads(updated);

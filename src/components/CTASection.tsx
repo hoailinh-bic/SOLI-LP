@@ -167,7 +167,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
       <section
         id="consultation"
         ref={formRef}
-        style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(64px,8vw,110px) clamp(24px,5vw,80px)', background: 'radial-gradient(130% 120% at 12% 0%, #f4fbf7 0%, #e7f4ec 42%, #dcefe4 100%)' }}
+        style={{ position: 'relative', overflow: 'hidden', scrollMarginTop: '100px', padding: 'clamp(64px,8vw,110px) clamp(24px,5vw,80px)', background: 'radial-gradient(130% 120% at 12% 0%, #f4fbf7 0%, #e7f4ec 42%, #dcefe4 100%)' }}
       >
         <SectionBg />
 
