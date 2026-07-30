@@ -183,92 +183,9 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
         </div>
 
         {/* 2 cards */}
-        <div className="soli-cta-grid" style={{ display: 'grid', gridTemplateColumns: '0.86fr 1.14fr', gap: 24, alignItems: 'stretch' }}>
+        <div className="soli-cta-grid" style={{ display: 'grid', gridTemplateColumns: '1.14fr 0.86fr', gap: 24, alignItems: 'stretch' }}>
 
-          {/* LEFT · lead magnet / download */}
-          <div style={{ ...cardShell, padding: '30px 28px' }}>
-            {/* playbook preview */}
-            <div style={{ position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', gap: 16, padding: 20, borderRadius: 18, background: 'linear-gradient(150deg, rgba(13,43,34,0.96), rgba(12,107,82,0.94))', boxShadow: '0 20px 44px -22px rgba(11,74,57,0.6)' }}>
-              <div aria-hidden="true" style={{ position: 'absolute', top: -30, right: -20, width: 150, height: 150, borderRadius: '50%', background: 'radial-gradient(circle at 50% 50%, rgba(52,211,153,0.4), transparent 70%)' }} />
-              <span style={{ position: 'relative', flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 52, height: 52, borderRadius: 14, background: 'linear-gradient(135deg,#34d399,#10b981)', boxShadow: '0 12px 24px -10px rgba(16,163,127,0.8)' }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M9 13h6M9 17h6" /></svg>
-              </span>
-              <div style={{ position: 'relative' }}>
-                <span style={{ display: 'inline-block', padding: '4px 10px', borderRadius: 999, background: 'rgba(52,211,153,0.22)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 10, letterSpacing: '0.8px', color: '#8fe3c6' }}>FREE PLAYBOOK</span>
-                <div style={{ marginTop: 8, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 16, color: '#fff' }}>Cẩm Nang Vận Hành Tự Động</div>
-              </div>
-            </div>
-
-            <h3 style={{ margin: '22px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.3px', lineHeight: 1.34, color: '#0d2b22' }}>Tải tài liệu "Ứng dụng AI cho ngành Spa: Cánh tay phải đắc lực giúp chuỗi dịch vụ bứt phá doanh thu"</h3>
-            <p style={{ margin: '12px 0 0', fontSize: 13.5, lineHeight: 1.62, color: '#5c6f68', fontWeight: 500 }}>Bộ tài liệu giúp bạn khai thác AI tự động hóa vận hành, tối ưu chăm sóc khách hàng, nâng cao hiệu quả doanh thu và tạo nền tảng tăng trưởng doanh thu bền vững.</p>
-
-            <div style={{ height: 1, margin: '22px 0 16px', background: 'linear-gradient(90deg, rgba(16,120,90,0.16), transparent)' }} />
-
-            {downloadSubmitted ? (
-              <div className="animate-fade-in" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.28)', borderRadius: 16, padding: 20, textAlign: 'center' }}>
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" /></svg>
-                <h5 style={{ margin: '12px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 14, color: '#0d2b22' }}>Cảm ơn bạn đã đăng ký. Tài liệu đang được mở.</h5>
-                <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Hệ thống đang tự động tải cẩm nang về thiết bị của bạn. Nếu quá trình tải không tự động kích hoạt, vui lòng nhấn nút bên dưới để tải trực tiếp:</p>
-                <button onClick={handleDownloadBook} className="soli-lift-sm" style={{ marginTop: 16, width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '13px 16px', border: 'none', borderRadius: 12, background: 'linear-gradient(135deg,#10b981,#059669)', cursor: 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, color: '#fff' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14" /></svg>
-                  TẢI TÀI LIỆU MIỄN PHÍ
-                </button>
-                <button onClick={() => setDownloadSubmitted(false)} style={{ marginTop: 12, background: 'none', border: 'none', color: '#0c6b52', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, cursor: 'pointer', textDecoration: 'underline' }}>[ Nhập lại thông tin khác ]</button>
-              </div>
-            ) : (
-              <form onSubmit={handleDownloadSubmit}>
-                <div style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11.5, letterSpacing: '0.4px', color: '#0c6b52' }}>* Cung cấp SĐT &amp; Email để hệ thống mở khóa link tải:</div>
-
-                <label className="soli-input-wrap" style={{ ...inputWrap, marginTop: 14 }}>
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3 7l9 6 9-6" /></svg>
-                  <input
-                    type="text"
-                    className="soli-input"
-                    placeholder="Email nhận các cẩm nang vận hành mới"
-                    value={downloadEmail}
-                    onChange={(e) => { setDownloadEmail(e.target.value); if (emailError) setEmailError(''); }}
-                    style={inputEl}
-                  />
-                </label>
-                {emailError && <p style={{ margin: '6px 0 0 4px', fontSize: 11, color: '#e0574a', fontWeight: 600 }}>{emailError}</p>}
-
-                <label className="soli-input-wrap" style={{ ...inputWrap, marginTop: 12 }}>
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z" /></svg>
-                  <input
-                    type="tel"
-                    className="soli-input"
-                    placeholder="Số điện thoại nhận thông báo Zalo"
-                    value={downloadPhone}
-                    onChange={(e) => { setDownloadPhone(e.target.value); if (phoneError) setPhoneError(''); }}
-                    style={inputEl}
-                  />
-                </label>
-                {phoneError && <p style={{ margin: '6px 0 0 4px', fontSize: 11, color: '#e0574a', fontWeight: 600 }}>{phoneError}</p>}
-
-                <button
-                  id="download-cta"
-                  type="submit"
-                  disabled={isDownloading}
-                  className="soli-lift-sm"
-                  style={{ marginTop: 22, width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px 18px', border: 'none', borderRadius: 14, background: 'linear-gradient(135deg,#0d2b22,#0c6b52)', cursor: isDownloading ? 'default' : 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13.5, letterSpacing: '0.6px', color: '#fff', boxShadow: '0 16px 34px -16px rgba(11,74,57,0.7)', opacity: isDownloading ? 0.75 : 1 }}
-                >
-                  {isDownloading ? (
-                    <>
-                      <span style={{ width: 15, height: 15, border: '2px solid #fff', borderTopColor: 'transparent', borderRadius: '50%', display: 'inline-block', animation: 'soli-border-spin 0.7s linear infinite' }} />
-                      ĐANG XỬ LÝ…
-                    </>
-                  ) : (
-                    <>
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14" /></svg>
-                      TẢI TÀI LIỆU MIỄN PHÍ
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* RIGHT · demo registration form */}
+          {/* LEFT · demo registration form */}
           <div style={{ ...cardShell, padding: '30px 30px' }}>
             <div style={{ display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 8, padding: '7px 13px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)' }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
@@ -359,6 +276,89 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
                   </p>
                 </form>
               </>
+            )}
+          </div>
+
+          {/* RIGHT · lead magnet / download */}
+          <div style={{ ...cardShell, padding: '30px 28px' }}>
+            {/* playbook preview */}
+            <div style={{ position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', gap: 16, padding: 20, borderRadius: 18, background: 'linear-gradient(150deg, rgba(13,43,34,0.96), rgba(12,107,82,0.94))', boxShadow: '0 20px 44px -22px rgba(11,74,57,0.6)' }}>
+              <div aria-hidden="true" style={{ position: 'absolute', top: -30, right: -20, width: 150, height: 150, borderRadius: '50%', background: 'radial-gradient(circle at 50% 50%, rgba(52,211,153,0.4), transparent 70%)' }} />
+              <span style={{ position: 'relative', flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 52, height: 52, borderRadius: 14, background: 'linear-gradient(135deg,#34d399,#10b981)', boxShadow: '0 12px 24px -10px rgba(16,163,127,0.8)' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M9 13h6M9 17h6" /></svg>
+              </span>
+              <div style={{ position: 'relative' }}>
+                <span style={{ display: 'inline-block', padding: '4px 10px', borderRadius: 999, background: 'rgba(52,211,153,0.22)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 10, letterSpacing: '0.8px', color: '#8fe3c6' }}>FREE PLAYBOOK</span>
+                <div style={{ marginTop: 8, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 16, color: '#fff' }}>Cẩm Nang Vận Hành Tự Động</div>
+              </div>
+            </div>
+
+            <h3 style={{ margin: '22px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.3px', lineHeight: 1.34, color: '#0d2b22' }}>Tải tài liệu "Ứng dụng AI cho ngành Spa: Cánh tay phải đắc lực giúp chuỗi dịch vụ bứt phá doanh thu"</h3>
+            <p style={{ margin: '12px 0 0', fontSize: 13.5, lineHeight: 1.62, color: '#5c6f68', fontWeight: 500 }}>Bộ tài liệu giúp bạn khai thác AI tự động hóa vận hành, tối ưu chăm sóc khách hàng, nâng cao hiệu quả doanh thu và tạo nền tảng tăng trưởng doanh thu bền vững.</p>
+
+            <div style={{ height: 1, margin: '22px 0 16px', background: 'linear-gradient(90deg, rgba(16,120,90,0.16), transparent)' }} />
+
+            {downloadSubmitted ? (
+              <div className="animate-fade-in" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.28)', borderRadius: 16, padding: 20, textAlign: 'center' }}>
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" /></svg>
+                <h5 style={{ margin: '12px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 14, color: '#0d2b22' }}>Cảm ơn bạn đã đăng ký. Tài liệu đang được mở.</h5>
+                <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Hệ thống đang tự động tải cẩm nang về thiết bị của bạn. Nếu quá trình tải không tự động kích hoạt, vui lòng nhấn nút bên dưới để tải trực tiếp:</p>
+                <button onClick={handleDownloadBook} className="soli-lift-sm" style={{ marginTop: 16, width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '13px 16px', border: 'none', borderRadius: 12, background: 'linear-gradient(135deg,#10b981,#059669)', cursor: 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, color: '#fff' }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14" /></svg>
+                  TẢI TÀI LIỆU MIỄN PHÍ
+                </button>
+                <button onClick={() => setDownloadSubmitted(false)} style={{ marginTop: 12, background: 'none', border: 'none', color: '#0c6b52', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, cursor: 'pointer', textDecoration: 'underline' }}>[ Nhập lại thông tin khác ]</button>
+              </div>
+            ) : (
+              <form onSubmit={handleDownloadSubmit}>
+                <div style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11.5, letterSpacing: '0.4px', color: '#0c6b52' }}>* Cung cấp SĐT &amp; Email để hệ thống mở khóa link tải:</div>
+
+                <label className="soli-input-wrap" style={{ ...inputWrap, marginTop: 14 }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3 7l9 6 9-6" /></svg>
+                  <input
+                    type="text"
+                    className="soli-input"
+                    placeholder="Email nhận các cẩm nang vận hành mới"
+                    value={downloadEmail}
+                    onChange={(e) => { setDownloadEmail(e.target.value); if (emailError) setEmailError(''); }}
+                    style={inputEl}
+                  />
+                </label>
+                {emailError && <p style={{ margin: '6px 0 0 4px', fontSize: 11, color: '#e0574a', fontWeight: 600 }}>{emailError}</p>}
+
+                <label className="soli-input-wrap" style={{ ...inputWrap, marginTop: 12 }}>
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z" /></svg>
+                  <input
+                    type="tel"
+                    className="soli-input"
+                    placeholder="Số điện thoại nhận thông báo Zalo"
+                    value={downloadPhone}
+                    onChange={(e) => { setDownloadPhone(e.target.value); if (phoneError) setPhoneError(''); }}
+                    style={inputEl}
+                  />
+                </label>
+                {phoneError && <p style={{ margin: '6px 0 0 4px', fontSize: 11, color: '#e0574a', fontWeight: 600 }}>{phoneError}</p>}
+
+                <button
+                  id="download-cta"
+                  type="submit"
+                  disabled={isDownloading}
+                  className="soli-lift-sm"
+                  style={{ marginTop: 22, width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '16px 18px', border: 'none', borderRadius: 14, background: 'linear-gradient(135deg,#0d2b22,#0c6b52)', cursor: isDownloading ? 'default' : 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13.5, letterSpacing: '0.6px', color: '#fff', boxShadow: '0 16px 34px -16px rgba(11,74,57,0.7)', opacity: isDownloading ? 0.75 : 1 }}
+                >
+                  {isDownloading ? (
+                    <>
+                      <span style={{ width: 15, height: 15, border: '2px solid #fff', borderTopColor: 'transparent', borderRadius: '50%', display: 'inline-block', animation: 'soli-border-spin 0.7s linear infinite' }} />
+                      ĐANG XỬ LÝ…
+                    </>
+                  ) : (
+                    <>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14" /></svg>
+                      TẢI TÀI LIỆU MIỄN PHÍ
+                    </>
+                  )}
+                </button>
+              </form>
             )}
           </div>
 
