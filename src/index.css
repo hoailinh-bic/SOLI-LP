@@ -123,9 +123,6 @@
   .soli-cards-3 { grid-template-columns: 1fr !important; }
   .soli-cta-grid { grid-template-columns: 1fr !important; }
 }
-@media (max-width: 880px) {
-  .soli-ebook-grid { grid-template-columns: 1fr !important; }
-}
 @media (max-width: 900px) {
   .soli-why-grid { grid-template-columns: 1fr !important; }
 }
@@ -144,4 +141,7 @@
 }
 @media (max-width: 560px) {
   .soli-footer-bottom { flex-direction: column; align-items: flex-start !important; gap: 6px !important; }
+}
+@media (max-width: 760px) {
+  .soli-ebook-grid { grid-template-columns: 1fr !important; }
 }

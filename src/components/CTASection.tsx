@@ -163,7 +163,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
 
   return (
     <>
-      {/* ===== Section 1 · Đăng ký trải nghiệm (GIỮ NGUYÊN) ===== */}
+      {/* ===== Section 1 · Đăng ký trải nghiệm (GIỮ NGUYÊN · khung ~820px căn giữa) ===== */}
       <section
         id="materials"
         ref={formRef}
@@ -171,7 +171,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
       >
         <SectionBg />
 
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: 1160, margin: '0 auto' }}>
+        <div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: 820, margin: '0 auto' }}>
           {/* header */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 'clamp(40px,5vw,56px)' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '9px 16px 9px 12px', borderRadius: 999, background: 'rgba(255,255,255,0.72)', border: '1px solid rgba(16,163,127,0.22)', boxShadow: '0 6px 20px -10px rgba(16,120,90,0.4)', backdropFilter: 'blur(8px)' }}>
@@ -184,7 +184,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
             <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Không còn nỗi lo bỏ lỡ khách hàng hay phản hồi trì trệ.<br />Hãy lựa chọn giải pháp phù hợp nhất với cửa hàng của bạn ngay hôm nay!</p>
           </div>
 
-          {/* Đăng ký trải nghiệm · full-width */}
+          {/* Đăng ký trải nghiệm */}
           <div style={{ ...cardShell, padding: '30px 30px' }}>
             <div style={{ display: 'inline-flex', alignSelf: 'flex-start', alignItems: 'center', gap: 8, padding: '7px 13px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)' }}>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
@@ -280,32 +280,21 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
         </div>
       </section>
 
-      {/* ===== Section 2 · Tải ebook (TÁCH RIÊNG · full-width · nền phân biệt) ===== */}
+      {/* ===== Section 2 · Tải tài liệu miễn phí (TÁCH RIÊNG · full-width · 2 cột: form trái / ảnh phải) ===== */}
       <section
-        style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(48px,6vw,88px) clamp(24px,5vw,80px)', background: 'linear-gradient(180deg, #ffffff 0%, #eef6f1 100%)', borderTop: '1px solid rgba(16,120,90,0.08)' }}
+        style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(56px,7vw,96px) clamp(24px,5vw,80px)', background: 'linear-gradient(180deg, #ffffff 0%, #eef6f1 100%)', borderTop: '1px solid rgba(16,120,90,0.08)' }}
       >
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: 1160, margin: '0 auto' }}>
-          <div className="soli-ebook-grid" style={{ display: 'grid', gridTemplateColumns: '1.05fr 0.95fr', gap: 'clamp(28px,4vw,56px)', alignItems: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto' }}>
+          <div className="soli-ebook-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.1fr) minmax(0,0.92fr)', gap: 'clamp(32px,4vw,60px)', alignItems: 'center' }}>
 
-            {/* LEFT · giới thiệu ebook */}
+            {/* LEFT · badge + tiêu đề + mô tả + form tải tài liệu */}
             <div>
-              <div style={{ position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', gap: 16, padding: 20, borderRadius: 18, background: 'linear-gradient(150deg, rgba(13,43,34,0.96), rgba(12,107,82,0.94))', boxShadow: '0 20px 44px -22px rgba(11,74,57,0.6)' }}>
-                <div aria-hidden="true" style={{ position: 'absolute', top: -30, right: -20, width: 150, height: 150, borderRadius: '50%', background: 'radial-gradient(circle at 50% 50%, rgba(52,211,153,0.4), transparent 70%)' }} />
-                <span style={{ position: 'relative', flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 52, height: 52, borderRadius: 14, background: 'linear-gradient(135deg,#34d399,#10b981)', boxShadow: '0 12px 24px -10px rgba(16,163,127,0.8)' }}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M9 13h6M9 17h6" /></svg>
-                </span>
-                <div style={{ position: 'relative' }}>
-                  <span style={{ display: 'inline-block', padding: '4px 10px', borderRadius: 999, background: 'rgba(52,211,153,0.22)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 10, letterSpacing: '0.8px', color: '#8fe3c6' }}>FREE PLAYBOOK</span>
-                  <div style={{ marginTop: 8, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 16, color: '#fff' }}>Cẩm Nang Vận Hành Tự Động</div>
-                </div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '7px 13px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)' }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
+                <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.8px', color: '#0c6b52' }}>CẨM NANG MIỄN PHÍ</span>
               </div>
-
               <h3 style={{ margin: '22px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.3px', lineHeight: 1.34, color: '#0d2b22' }}>Tải tài liệu "Ứng dụng AI cho ngành Spa: Cánh tay phải đắc lực giúp chuỗi dịch vụ bứt phá doanh thu"</h3>
               <p style={{ margin: '12px 0 0', fontSize: 13.5, lineHeight: 1.62, color: '#5c6f68', fontWeight: 500 }}>Bộ tài liệu giúp bạn khai thác AI tự động hóa vận hành, tối ưu chăm sóc khách hàng, nâng cao hiệu quả doanh thu và tạo nền tảng tăng trưởng doanh thu bền vững.</p>
-            </div>
-
-            {/* RIGHT · form tải tài liệu */}
-            <div style={{ ...cardShell, padding: '30px 28px' }}>
               {downloadSubmitted ? (
                 <div className="animate-fade-in" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.28)', borderRadius: 16, padding: 20, textAlign: 'center' }}>
                   <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" /></svg>
@@ -368,6 +357,13 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
                   </button>
                 </form>
               )}
+            </div>
+
+            {/* RIGHT · ảnh minh hoạ spa (bo góc, viền trắng, shadow) */}
+            <div style={{ position: 'relative', width: '100%' }}>
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', borderRadius: 26, overflow: 'hidden', border: '6px solid #ffffff', boxShadow: '0 30px 70px -34px rgba(11,74,57,0.5)', background: '#e7f4ec' }}>
+                <img src="/images/spa-booking.png" alt="Nhân viên spa hỗ trợ khách hàng đặt lịch trên máy tính bảng" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+              </div>
             </div>
 
           </div>
