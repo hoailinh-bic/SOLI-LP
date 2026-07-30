@@ -280,10 +280,12 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
         </div>
       </section>
 
-      {/* ===== Section 2 · Tải tài liệu miễn phí (TÁCH RIÊNG · full-width · 2 cột: form trái / ảnh phải) ===== */}
+      {/* ===== Section 2 · Tải tài liệu miễn phí (nền + hiệu ứng ĐỒNG BỘ với các section khác) ===== */}
       <section
-        style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(56px,7vw,96px) clamp(24px,5vw,80px)', background: 'linear-gradient(180deg, #ffffff 0%, #eef6f1 100%)', borderTop: '1px solid rgba(16,120,90,0.08)' }}
+        style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(64px,8vw,110px) clamp(24px,5vw,80px)', background: 'radial-gradient(130% 120% at 12% 0%, #f4fbf7 0%, #e7f4ec 42%, #dcefe4 100%)' }}
       >
+        <SectionBg />
+
         <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto' }}>
           <div className="soli-ebook-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.1fr) minmax(0,0.92fr)', gap: 'clamp(32px,4vw,60px)', alignItems: 'center' }}>
 
@@ -359,7 +361,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
               )}
             </div>
 
-            {/* RIGHT · ảnh minh hoạ spa (bo góc, viền trắng, shadow) */}
+            {/* RIGHT · ảnh minh hoạ spa (bo góc, viền trắng, shadow — đồng bộ card hiện có) */}
             <div style={{ position: 'relative', width: '100%' }}>
               <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', borderRadius: 26, overflow: 'hidden', border: '6px solid #ffffff', boxShadow: '0 30px 70px -34px rgba(11,74,57,0.5)', background: '#e7f4ec' }}>
                 <img src="/images/spa-booking.png" alt="Nhân viên spa hỗ trợ khách hàng đặt lịch trên máy tính bảng" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />

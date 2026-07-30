@@ -28,7 +28,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
     { label: 'Giải pháp', href: '#how-it-works' },
     { label: 'Tại sao chọn Soli', href: '#why-soli' },
     { label: 'Bảng giá', href: '#pricing' },
-    { label: 'Thông tin thêm', href: '#materials' }
+    { label: 'Tư vấn', href: '#materials' }
   ];
 
   return (
