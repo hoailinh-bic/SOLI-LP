@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import GoogleSheetsConfigModal from './components/GoogleSheetsConfigModal';
 import { Lead } from './types';
 import { Sparkles, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { smoothScrollToId } from './lib/smoothScroll';
 
 // Google Apps Script Web App endpoint (same webhook used by the download form).
 // Leads are posted directly from the browser so the static production build
@@ -63,8 +64,7 @@ export default function App() {
     if (!hash) return;
     const id = decodeURIComponent(hash.slice(1));
     const scrollToHash = () => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      smoothScrollToId(id, { duration: 350, offset: 100 });
     };
     const t = window.setTimeout(scrollToHash, 350);
     return () => window.clearTimeout(t);

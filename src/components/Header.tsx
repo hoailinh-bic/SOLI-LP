@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, FileSpreadsheet } from 'lucide-react';
+import { smoothScrollToId } from '../lib/smoothScroll';
 
 interface HeaderProps {
   onOpenDemo: () => void;
@@ -50,6 +51,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
               <a
                 key={item.label}
                 href={item.href}
+                onClick={item.href === '#consultation' ? (e) => { e.preventDefault(); smoothScrollToId('consultation', { duration: 350, offset: 100 }); history.pushState(null, '', '#consultation'); } : undefined}
                 className="text-xs uppercase tracking-wider font-semibold text-slate-500 hover:text-emerald-600 transition-all duration-150 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-emerald-600 after:transition-all after:duration-150 whitespace-nowrap"
               >
                 {item.label}
@@ -94,7 +96,7 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
             <a
               key={item.label}
               href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => { setIsMobileMenuOpen(false); if (item.href === '#consultation') { e.preventDefault(); smoothScrollToId('consultation', { duration: 350, offset: 100 }); history.pushState(null, '', '#consultation'); } }}
               className="block px-3 py-3 rounded-xl text-base font-medium text-slate-600 hover:bg-slate-100 hover:text-emerald-600 transition-colors"
             >
               {item.label}
