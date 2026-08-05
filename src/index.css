@@ -110,9 +110,9 @@
 .soli-input::placeholder { color: #9aa8a2; }
 
 /* ===== Pricing card hover / selection (compact redesign) ===== */
-.soli-price-card { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .25s ease; cursor: pointer; outline: none; }
+.soli-price-card { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .25s ease; outline: none; }
 .soli-price-card:hover { transform: translateY(-6px); }
-.soli-price-card:focus-visible { box-shadow: 0 0 0 3px rgba(16,185,129,0.45), 0 30px 66px -34px rgba(11,74,57,0.5) !important; }
+.soli-price-cta:focus-visible { outline: 2px solid rgba(16,185,129,0.6); outline-offset: 2px; }
 .soli-price-featured { transform: translateY(-14px); }
 .soli-price-featured:hover { transform: translateY(-20px); }
 
