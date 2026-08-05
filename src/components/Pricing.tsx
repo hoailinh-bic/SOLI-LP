@@ -1,99 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface PricingProps {
   onOpenDemo: () => void;
 }
 
+interface Feature {
+  text: string;
+  strong?: boolean;
+}
+
 interface Plan {
   id: string;
+  segment: string;        // small pill: "Chuỗi spa ..."
   name: string;
-  badge: string;
   price: string;
   period: string;
-  conversion: string;
-  limits: { label: string; value: string }[];
-  features?: string[];
-  exclusiveFeatures?: string[];
-  note: string;
-  cta: string;
+  priceNote?: string;     // e.g. "Không cần thẻ · không tự trừ tiền"
+  includesNote?: string;  // e.g. "Mọi thứ ở Trải Nghiệm, cộng:"
+  features: Feature[];
+  topFlag?: string;       // dark pill centered on top edge
   highlighted?: boolean;
   isTrial?: boolean;
 }
 
 const plans: Plan[] = [
   {
-    id: 'trial', name: 'Gói Trải Nghiệm', badge: 'DÙNG THỬ', price: '0đ', period: '/ 7 ngày dùng thử',
-    conversion: 'Trải nghiệm hoàn toàn miễn phí trong 7 ngày',
-    limits: [
-      { label: 'Hạn mức AI', value: '~200 tin (~20 khách)' },
-      { label: 'Quy mô', value: 'Kết nối 1 cơ sở' },
-      { label: 'Kênh tích hợp', value: '1 Facebook + 1 Zalo OA' }
-    ],
+    id: 'trial',
+    segment: 'Chuỗi spa muốn trải nghiệm',
+    name: 'Trải Nghiệm',
+    price: '0đ',
+    period: '/ 7 ngày',
+    priceNote: 'Không cần thẻ · không tự trừ tiền',
+    topFlag: 'Miễn phí · không cần thẻ',
     features: [
-      'Trợ lý Soli AI tự động Chat & Đặt lịch 24/7.',
-      'Hệ thống lịch lưới trực quan & Quản lý khách tự đến.',
-      'Báo cáo hiệu quả doanh thu (ROI) bản cơ bản.',
-      'Tự động nhắc lịch hẹn khách hàng (Cơ bản).',
-      'Hỗ trợ: Qua cộng đồng người dùng Soli AI.'
+      { text: 'AI tự chốt lịch hẹn 24/7' },
+      { text: '~200 tin AI (trong 7 ngày)' },
+      { text: '1 cơ sở · Zalo OA + Facebook' },
+      { text: 'Nhắc hẹn cơ bản · ROI cơ bản' }
     ],
-    note: '* Hệ thống sẽ tạm khóa khi sử dụng hết 200 tin hoặc hết hạn 7 ngày.',
-    cta: 'DÙNG THỬ MIỄN PHÍ NGAY', isTrial: true
+    isTrial: true
   },
   {
-    id: 'starter', name: 'Gói Khởi Động', badge: 'KHỞI ĐỘNG', price: '249.000đ', period: '/tháng',
-    conversion: 'Tính ra chỉ ~249đ / tin nhắn AI',
-    limits: [
-      { label: 'Hạn mức AI', value: '~1.000 tin nhắn/tháng' },
-      { label: 'Quy mô', value: 'Kết nối 3 cơ sở' },
-      { label: 'Kênh tích hợp', value: 'Facebook + Zalo OA' }
-    ],
+    id: 'starter',
+    segment: 'Chuỗi spa mới phát triển',
+    name: 'Khởi Động',
+    price: '249.000đ',
+    period: '/ tháng',
+    includesNote: 'Mọi thứ ở Trải Nghiệm, cộng:',
     features: [
-      'Trợ lý Soli AI tự động Chat & Đặt lịch 24/7.',
-      'Hỗ trợ điều phối đặt lịch đa cơ sở.',
-      'Hệ thống lịch lưới trực quan & Quản lý khách tự đến.',
-      'Báo cáo hiệu quả doanh thu (ROI) bản cơ bản.',
-      'Tự động nhắc lịch hẹn khách hàng (Cơ bản).',
-      'Hỗ trợ: Qua Email.'
-    ],
-    note: '* Chi phí vượt trần: 300đ / tin nhắn AI phát sinh.',
-    cta: 'KÍCH HOẠT GÓI KHỞI ĐỘNG'
+      { text: '1.000 tin AI / tháng' },
+      { text: '3 cơ sở · 5 kênh (Zalo + FB)' }
+    ]
   },
   {
-    id: 'growth', name: 'Gói Tăng Trưởng', badge: 'TĂNG TRƯỞNG', price: '990.000đ', period: '/tháng',
-    conversion: 'Tiết kiệm hơn ~198đ / tin nhắn AI',
-    limits: [
-      { label: 'Hạn mức AI', value: '~5.000 tin nhắn/tháng' },
-      { label: 'Quy mô', value: 'Kết nối 5 cơ sở' },
-      { label: 'Kênh tích hợp', value: 'Facebook + Zalo OA' }
-    ],
+    id: 'growth',
+    segment: 'Chuỗi spa đang mở rộng',
+    name: 'Tăng Trưởng',
+    price: '990.000đ',
+    period: '/ tháng',
+    includesNote: 'Mọi thứ ở Khởi Động, cộng:',
     features: [
-      'Trợ lý Soli AI tự động Chat & Đặt lịch 24/7.',
-      'Dung lượng tin nhắn AI lớn gấp 5 lần gói Khởi Động.',
-      'Tối ưu hóa quy trình điều phối khách đặt lịch đa cơ sở.',
-      'Hệ thống lịch lưới trực quan & Quản lý khách tự đến.',
-      'Hệ thống báo cáo ROI và tự động nhắc lịch chăm sóc khách hàng định kỳ.',
-      'Hỗ trợ: Qua Email.'
-    ],
-    note: '* Chi phí vượt trần: 300đ / tin nhắn AI phát sinh.',
-    cta: 'BỨT PHÁ DOANH SỐ NGAY'
+      { text: '5.000 tin AI / tháng' },
+      { text: '5 cơ sở · 10 kênh' }
+    ]
   },
   {
-    id: 'professional', name: 'Gói Chuyên Nghiệp', badge: 'GÓI CHUYÊN NGHIỆP', price: '1.390.000đ', period: '/tháng',
-    conversion: 'Giá rẻ nhất ~174đ / tin nhắn AI',
-    limits: [
-      { label: 'Hạn mức AI', value: '~8.000 tin nhắn/tháng' },
-      { label: 'Quy mô', value: 'Kết nối lên đến 10 cơ sở' },
-      { label: 'Kênh tích hợp', value: 'Facebook + Instagram + Zalo OA' }
+    id: 'professional',
+    segment: 'Chuỗi spa quy mô lớn',
+    name: 'Chuyên Nghiệp',
+    price: '1.390.000đ',
+    period: '/ tháng',
+    topFlag: '★ Phổ biến nhất',
+    includesNote: 'Mọi thứ ở Tăng Trưởng, cộng:',
+    features: [
+      { text: '8.000 tin AI / tháng' },
+      { text: 'Tới 10 cơ sở · 30 kênh · +Instagram' },
+      { text: 'Smart-routing chéo cơ sở', strong: true },
+      { text: 'Copilot + hàng đợi lead ≤15 phút', strong: true },
+      { text: 'ROI nâng cao + so sánh chéo cơ sở', strong: true }
     ],
-    exclusiveFeatures: [
-      'Tự động nhận diện, kiểm tra phòng trống và điều hướng khách về cơ sở tối ưu nhất.',
-      'Tự động phân loại trạng thái khách hàng và sắp xếp hàng đợi khoa học.',
-      'Bảng điều khiển đa cơ sở, báo cáo ROI nâng cao và so sánh chéo hiệu suất giữa các chi nhánh.',
-      'Cấu hình kịch bản nhắc lịch chuyên sâu, cá nhân hóa theo từng nhóm khách.',
-      'Đội ngũ CSKH chuyên biệt, ưu tiên 24/7.'
-    ],
-    note: '* Chi phí vượt trần: 300đ / tin nhắn AI phát sinh.',
-    cta: 'NÂNG CẤP TRẢI NGHIỆM CHUYÊN NGHIỆP', highlighted: true
+    highlighted: true
   }
 ];
 
@@ -110,17 +96,18 @@ const SectionBg = () => (
   </div>
 );
 
-const ArrowIcon = ({ color = '#fff' }: { color?: string }) => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-);
-
-const CheckBox = ({ featured }: { featured?: boolean }) => (
-  <span style={{ flexShrink: 0, marginTop: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 19, height: 19, borderRadius: 6, background: featured ? 'linear-gradient(135deg,#10b981,#059669)' : 'rgba(16,185,129,0.14)' }}>
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={featured ? '#fff' : '#059669'} strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
-  </span>
+const CheckIcon = ({ color = '#10b981' }: { color?: string }) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}><path d="M20 6L9 17l-5-5" /></svg>
 );
 
 export default function Pricing({ onOpenDemo }: PricingProps) {
+  const [selected, setSelected] = useState<string>('trial');
+
+  const handleSelect = (id: string) => {
+    setSelected(id);
+    onOpenDemo();
+  };
+
   return (
     <section id="pricing" style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(64px,8vw,110px) clamp(24px,5vw,80px)', background: 'radial-gradient(130% 120% at 12% 0%, #f4fbf7 0%, #e7f4ec 42%, #dcefe4 100%)' }}>
       <SectionBg />
@@ -135,92 +122,76 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
             <span style={{ fontFamily: "'Zalando Sans'", fontSize: 12, fontWeight: 700, letterSpacing: '1.1px', color: '#0c6b52' }}>BẢNG GIÁ DỊCH VỤ</span>
           </div>
           <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.8vw,48px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22' }}>Đầu tư chi phí nhỏ — <span style={{ color: '#059669' }}>Thu về giá trị lớn</span></h2>
-          <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Chỉ với một khoản đầu tư hợp lý mỗi tháng, SOLI AI giúp tăng tỷ lệ đặt lịch thành công và tối ưu hiệu quả kinh doanh của bạn.</p>
+          <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Chọn gói phù hợp với quy mô chuỗi spa của bạn. Nâng cấp linh hoạt bất cứ lúc nào.</p>
         </div>
 
         {/* pricing grid */}
         <div className="soli-price-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20, alignItems: 'stretch' }}>
           {plans.map((plan) => {
             const featured = !!plan.highlighted;
+            const isSelected = selected === plan.id;
             return (
               <div
                 key={plan.id}
-                className={featured ? 'soli-price-featured' : undefined}
+                onClick={() => handleSelect(plan.id)}
+                role="button"
+                tabIndex={0}
+                aria-pressed={isSelected}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSelect(plan.id); } }}
+                className={`soli-price-card${featured ? ' soli-price-featured' : ''}`}
                 style={featured
-                  ? { position: 'relative', display: 'flex', flexDirection: 'column', padding: '26px 24px', borderRadius: 24, background: 'linear-gradient(165deg, rgba(236,253,245,0.96), rgba(214,247,232,0.9))', border: '1.5px solid rgba(16,185,129,0.55)', boxShadow: '0 44px 90px -30px rgba(16,120,90,0.55), 0 0 0 4px rgba(16,185,129,0.08), inset 0 1px 0 rgba(255,255,255,0.9)', backdropFilter: 'blur(16px)', transform: 'translateY(-14px)' }
-                  : { display: 'flex', flexDirection: 'column', padding: '26px 24px', borderRadius: 24, background: 'linear-gradient(160deg, rgba(255,255,255,0.9), rgba(255,255,255,0.66))', border: '1px solid rgba(255,255,255,0.9)', boxShadow: '0 30px 66px -34px rgba(11,74,57,0.5), inset 0 1px 0 rgba(255,255,255,0.9)', backdropFilter: 'blur(16px)' }}
+                  ? { position: 'relative', display: 'flex', flexDirection: 'column', padding: '26px 24px', borderRadius: 24, background: 'linear-gradient(165deg, rgba(236,253,245,0.96), rgba(214,247,232,0.9))', border: '1.5px solid rgba(16,185,129,0.55)', boxShadow: isSelected ? '0 44px 90px -30px rgba(16,120,90,0.55), 0 0 0 4px rgba(16,185,129,0.28), inset 0 1px 0 rgba(255,255,255,0.9)' : '0 44px 90px -30px rgba(16,120,90,0.55), 0 0 0 4px rgba(16,185,129,0.08), inset 0 1px 0 rgba(255,255,255,0.9)', backdropFilter: 'blur(16px)' }
+                  : { position: 'relative', display: 'flex', flexDirection: 'column', padding: '26px 24px', borderRadius: 24, background: 'linear-gradient(160deg, rgba(255,255,255,0.9), rgba(255,255,255,0.66))', border: isSelected ? '1.5px solid rgba(16,185,129,0.55)' : '1px solid rgba(255,255,255,0.9)', boxShadow: isSelected ? '0 30px 66px -30px rgba(11,74,57,0.5), 0 0 0 3px rgba(16,185,129,0.18), inset 0 1px 0 rgba(255,255,255,0.9)' : '0 30px 66px -34px rgba(11,74,57,0.5), inset 0 1px 0 rgba(255,255,255,0.9)', backdropFilter: 'blur(16px)' }}
               >
-                {featured && (
+                {plan.topFlag && (
                   <div style={{ position: 'absolute', top: -13, left: '50%', transform: 'translateX(-50%)', display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 15px', borderRadius: 999, background: 'linear-gradient(135deg,#0d2b22,#0c6b52)', boxShadow: '0 12px 26px -10px rgba(11,74,57,0.7)', whiteSpace: 'nowrap' }}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#34d399"><path d="M12 2l2.9 6.3L22 9l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.6 2 9l7.1-.7z" /></svg>
-                    <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 11, letterSpacing: '0.8px', color: '#fff' }}>KHUYÊN DÙNG</span>
+                    <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 11, letterSpacing: '0.6px', color: '#fff' }}>{plan.topFlag}</span>
                   </div>
                 )}
 
-                <div style={featured
-                  ? { display: 'inline-flex', alignSelf: 'flex-start', marginTop: 6, padding: '6px 12px', borderRadius: 999, background: 'linear-gradient(135deg,#10b981,#059669)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.8px', color: '#fff' }
-                  : { display: 'inline-flex', alignSelf: 'flex-start', padding: '6px 12px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.8px', color: '#0c6b52' }}>{plan.badge}</div>
+                {/* segment pill */}
+                <div style={{ display: 'inline-flex', alignSelf: 'flex-start', marginTop: plan.topFlag ? 8 : 2, padding: '6px 12px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.2px', color: '#0c6b52' }}>{plan.segment}</div>
 
-                {!featured && <h3 style={{ margin: '16px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.3px', color: '#0d2b22' }}>{plan.name}</h3>}
+                {/* name */}
+                <h3 style={{ margin: '14px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', color: '#0d2b22' }}>{plan.name}</h3>
 
-                <div style={{ marginTop: featured ? 16 : 14, display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                  <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: plan.isTrial ? 38 : 32, lineHeight: 1, letterSpacing: '-1.3px', color: '#0d2b22' }}>{plan.price}</span>
+                {/* price */}
+                <div style={{ marginTop: 8, display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                  <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: plan.isTrial ? 34 : 30, lineHeight: 1, letterSpacing: '-1.3px', color: '#0d2b22' }}>{plan.price}</span>
                   <span style={{ fontSize: 13, color: featured ? '#39584b' : '#5c6f68', fontWeight: 500 }}>{plan.period}</span>
                 </div>
 
-                <div style={featured
-                  ? { marginTop: 12, padding: '8px 12px', borderRadius: 12, background: 'linear-gradient(135deg,#10b981,#059669)', fontSize: 12.5, fontWeight: 700, color: '#fff' }
-                  : { marginTop: 12, padding: '8px 12px', borderRadius: 12, background: 'rgba(16,185,129,0.1)', fontSize: 12.5, fontWeight: 600, color: '#0c6b52' }}>{plan.conversion}</div>
+                {/* price note / includes note */}
+                {plan.priceNote && (
+                  <div style={{ marginTop: 10, fontSize: 12.5, color: '#5c6f68', fontWeight: 500 }}>{plan.priceNote}</div>
+                )}
+                {plan.includesNote && (
+                  <div style={{ marginTop: 12, fontSize: 12.5, color: '#39584b', fontWeight: 600 }}>{plan.includesNote}</div>
+                )}
 
-                {/* limits */}
-                <div style={{ marginTop: 18, display: 'flex', flexDirection: 'column', gap: 10, padding: 16, borderRadius: 16, background: featured ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.7)', border: featured ? '1px solid rgba(16,185,129,0.25)' : '1px solid rgba(16,120,90,0.1)' }}>
-                  {plan.limits.map((l) => (
-                    <div key={l.label} style={{ display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'flex-start' }}>
-                      <span style={{ fontSize: 12, color: '#5c6f68', fontWeight: 500 }}>{l.label}</span>
-                      <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 12.5, color: '#0d2b22', textAlign: 'right' }}>{l.value}</span>
+                {/* features */}
+                <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 11 }}>
+                  {plan.features.map((f) => (
+                    <div key={f.text} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
+                      <CheckIcon color={featured ? '#059669' : '#10b981'} />
+                      <span style={{ fontSize: 13.5, lineHeight: 1.4, color: f.strong ? '#0d2b22' : '#39584b', fontWeight: f.strong ? 700 : 500 }}>{f.text}</span>
                     </div>
                   ))}
                 </div>
 
-                {featured ? (
-                  <>
-                    <div style={{ marginTop: 16, fontSize: 12, lineHeight: 1.5, color: '#39584b', fontWeight: 500 }}>Bao gồm toàn bộ tính năng của 3 gói trước. <b style={{ color: '#0c6b52' }}>Đặc quyền độc quyền chỉ có tại gói này:</b></div>
-                    <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                      {plan.exclusiveFeatures?.map((f) => (
-                        <div key={f} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                          <CheckBox featured />
-                          <span style={{ fontSize: 13, lineHeight: 1.45, color: '#0d2b22', fontWeight: 600 }}>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div style={{ marginTop: 18, fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11.5, letterSpacing: '0.6px', color: '#0c6b52' }}>BẠN SẼ NHẬN ĐƯỢC:</div>
-                    <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                      {plan.features?.map((f) => (
-                        <div key={f} style={{ display: 'flex', gap: 9, alignItems: 'flex-start' }}>
-                          <CheckBox />
-                          <span style={{ fontSize: 13, lineHeight: 1.45, color: '#39584b', fontWeight: 500 }}>{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
+                <div style={{ flex: 1, minHeight: 16 }} />
 
-                <div style={{ flex: 1 }} />
-
-                <button
+                {/* select control (CTA) */}
+                <div
                   id={`pricing-cta-${plan.id}`}
-                  onClick={onOpenDemo}
                   className="soli-lift-sm"
-                  style={plan.isTrial
-                    ? { marginTop: 22, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 9, padding: '15px 18px', border: '1.5px solid rgba(16,163,127,0.4)', borderRadius: 14, background: 'rgba(255,255,255,0.85)', cursor: 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, letterSpacing: '0.4px', color: '#0c6b52', animation: 'soli-soft-glow 2.8s ease-in-out infinite' }
-                    : { marginTop: 22, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 9, padding: featured ? '16px 18px' : '15px 18px', border: 'none', borderRadius: 14, background: 'linear-gradient(135deg,#10b981,#059669)', cursor: 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, letterSpacing: '0.4px', color: '#fff', boxShadow: featured ? undefined : '0 14px 30px -14px rgba(16,163,127,0.7)', animation: featured ? 'soli-cta-glow 2.8s ease-in-out infinite' : undefined }}
+                  style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 10, alignSelf: 'flex-start' }}
                 >
-                  {plan.cta} <ArrowIcon color={plan.isTrial ? '#0c6b52' : '#fff'} />
-                </button>
-                <div style={{ marginTop: 12, fontSize: 10.5, lineHeight: 1.5, color: featured ? '#5c8073' : '#9aa8a2', fontStyle: 'italic' }}>{plan.note}</div>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 20, height: 20, borderRadius: '50%', border: isSelected ? '2px solid #059669' : '2px solid rgba(12,107,82,0.35)', background: 'transparent', transition: 'border-color .2s ease' }}>
+                    {isSelected && <span style={{ width: 9, height: 9, borderRadius: '50%', background: 'linear-gradient(135deg,#10b981,#059669)' }} />}
+                  </span>
+                  <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 13.5, color: isSelected ? '#059669' : '#5c6f68' }}>{isSelected ? 'Đã chọn' : 'Chọn gói này'}</span>
+                </div>
               </div>
             );
           })}
