@@ -33,7 +33,6 @@ const plans: Plan[] = [
     price: '0đ',
     period: '/ 7 ngày',
     priceNote: 'Không cần thẻ · không tự trừ tiền',
-    topFlag: 'Miễn phí · không cần thẻ',
     features: [
       { text: 'AI tự chốt lịch hẹn 24/7' },
       { text: '~200 tin AI (trong 7 ngày)' },
