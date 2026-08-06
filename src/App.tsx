@@ -8,6 +8,7 @@ import Pricing from './components/Pricing';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 import GoogleSheetsConfigModal from './components/GoogleSheetsConfigModal';
+import DownloadPopup from './components/DownloadPopup';
 import { Lead } from './types';
 import { Sparkles, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { smoothScrollToId } from './lib/smoothScroll';
@@ -237,10 +238,13 @@ export default function App() {
       <Footer />
 
       {/* Google Sheets Config Modal */}
-      <GoogleSheetsConfigModal 
-        isOpen={isSheetsModalOpen} 
-        onClose={() => setIsSheetsModalOpen(false)} 
+      <GoogleSheetsConfigModal
+        isOpen={isSheetsModalOpen}
+        onClose={() => setIsSheetsModalOpen(false)}
       />
+
+      {/* Entry popup — free e-book download (mirrors the download section) */}
+      <DownloadPopup />
 
     </div>
   );
