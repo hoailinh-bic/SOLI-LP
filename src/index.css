@@ -152,3 +152,30 @@
 @media (max-width: 760px) {
   .soli-ebook-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ===== Floating e-book download popup (bottom-right, non-blocking) ===== */
+.soli-floating-popup {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  left: auto;
+  width: 400px;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  z-index: 100000;
+}
+@media (max-width: 480px) {
+  .soli-floating-popup {
+    right: 5vw;
+    left: 5vw;
+    bottom: 16px;
+    width: 90vw;
+    max-width: none;
+    max-height: calc(100vh - 32px);
+  }
+}
+@keyframes soli-pop-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes soli-pop-out { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(24px); } }
+.soli-pop-in { animation: soli-pop-in .42s cubic-bezier(.2,.8,.2,1) both; }
+.soli-pop-out { animation: soli-pop-out .28s ease both; }
