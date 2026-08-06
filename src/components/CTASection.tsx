@@ -5,15 +5,9 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrq8QYXkXZ6UzgdPnDa
 const DOWNLOAD_URL = "https://drive.google.com/uc?export=download&id=1Os6dZOPr5DBLdb_FWfsamlm11902VsFB";
 
 interface CTASectionProps {
-  onLeadCreate: (name: string, phone: string, bizName: string, branches: '1' | '2-3' | 'over-3', source: 'demo_form' | 'resource_download', email?: string) => Promise<{ success: boolean; message?: string }>;
+  onLeadCreate: (name: string, phone: string, bizName?: string, branches?: '1' | '2-3' | 'over-3', source?: 'demo_form' | 'resource_download', email?: string) => Promise<{ success: boolean; message?: string }>;
   formRef: React.RefObject<HTMLDivElement | null>;
 }
-
-const BRANCH_OPTIONS: { value: '1' | '2-3' | 'over-3'; label: string }[] = [
-  { value: '1', label: '1 Cơ sở' },
-  { value: '2-3', label: '2-3 Cơ sở' },
-  { value: 'over-3', label: 'Trên 3 cơ sở' }
-];
 
 const SectionBg = () => (
   <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
@@ -61,8 +55,6 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
   // Card 2: Registration Form
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
-  const [bizName, setBizName] = useState('');
-  const [branches, setBranches] = useState<'1' | '2-3' | 'over-3'>('1');
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleDownloadSubmit = async (e: React.FormEvent) => {
@@ -149,17 +141,15 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !phone || !bizName) return;
+    if (!fullName || !phone) return;
 
-    onLeadCreate(fullName, phone, bizName, branches, 'demo_form');
+    onLeadCreate(fullName, phone, undefined, undefined, 'demo_form');
     setFormSubmitted(true);
   };
 
   const handleDownloadBook = () => {
     window.open(DOWNLOAD_URL, '_blank');
   };
-
-  const branchLabel = branches === '1' ? '1 cơ sở' : branches === '2-3' ? '2-3 cơ sở' : 'trên 3 cơ sở';
 
   return (
     <>
@@ -199,7 +189,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
                 </div>
                 <div>
                   <h4 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 18, color: '#059669' }}>Gửi Bản Đăng Ký Thành Công!</h4>
-                  <p style={{ margin: '8px 0 0', fontSize: 13.5, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500, maxWidth: 420 }}>Thông tin tiệm <strong style={{ color: '#0d2b22' }}>{bizName}</strong> quy mô {branchLabel} đã được tiếp nhận.</p>
+                  <p style={{ margin: '8px 0 0', fontSize: 13.5, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500, maxWidth: 420 }}>Thông tin đăng ký của bạn đã được tiếp nhận.</p>
                 </div>
                 <div style={{ width: '100%', maxWidth: 380, textAlign: 'left', padding: 16, borderRadius: 14, background: 'rgba(255,255,255,0.8)', border: '1px solid rgba(16,120,90,0.12)' }}>
                   <p style={{ margin: '0 0 8px', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 11, letterSpacing: '0.4px', color: '#0c6b52' }}>📞 CÁC BƯỚC TIẾP THEO:</p>
@@ -210,8 +200,9 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
               </div>
             ) : (
               <>
-                <p style={{ margin: '12px 0 0', fontSize: 14, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Mỗi khách hàng nhắn tin đều là một cơ hội doanh thu. Hãy trải nghiệm cách SOLI giúp tiếp đón khách tức thì, tăng tỷ lệ đặt lịch và giảm thất thoát booking do phản hồi chậm.</p>
-                <p style={{ margin: '10px 0 0', fontSize: 14, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Để lại thông tin liên hệ, đội ngũ SOLI AI sẽ liên hệ tư vấn và thiết lập SOLI AI phù hợp với nhu cầu thực tế của tiệm.</p>
+                <p style={{ margin: '12px 0 0', fontSize: 14, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Tăng tỷ lệ chốt lịch mà không cần tăng nhân sự.</p>
+                <p style={{ margin: '10px 0 0', fontSize: 14, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>SOLI AI hỗ trợ tư vấn khách hàng 24/7, tự động đặt lịch, nhắc lịch và quản lý hội thoại đa kênh, giúp spa không bỏ lỡ bất kỳ cơ hội doanh thu nào.</p>
+                <p style={{ margin: '10px 0 0', fontSize: 14, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Đăng ký trải nghiệm miễn phí, chuyên gia SOLI AI sẽ liên hệ và tư vấn giải pháp phù hợp với spa của bạn.</p>
 
                 <form onSubmit={handleFormSubmit}>
                   <div className="soli-form-row" style={{ marginTop: 22, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
@@ -228,33 +219,6 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z" /></svg>
                         <input type="tel" required className="soli-input" placeholder="09xx xxx xxx" value={phone} onChange={(e) => setPhone(e.target.value)} style={inputEl} />
                       </label>
-                    </div>
-                  </div>
-
-                  <div style={{ marginTop: 16 }}>
-                    <div style={fieldLabel}>Tên thương hiệu Tiệm / Spa / Clinic <span style={{ color: '#e0574a' }}>*</span></div>
-                    <label className="soli-input-wrap" style={inputWrap}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01" /></svg>
-                      <input type="text" required className="soli-input" placeholder="Ví dụ: Hana Beauty, Seoul Clinic..." value={bizName} onChange={(e) => setBizName(e.target.value)} style={inputEl} />
-                    </label>
-                  </div>
-
-                  <div style={{ marginTop: 16 }}>
-                    <div style={fieldLabel}>Số lượng chi nhánh cửa hàng hiện tại <span style={{ color: '#e0574a' }}>*</span></div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
-                      {BRANCH_OPTIONS.map((opt) => {
-                        const active = branches === opt.value;
-                        return (
-                          <button
-                            key={opt.value}
-                            type="button"
-                            onClick={() => setBranches(opt.value)}
-                            style={{ padding: '13px 10px', borderRadius: 13, cursor: 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 13, transition: 'all .2s ease', border: active ? '1.5px solid rgba(16,185,129,0.5)' : '1.5px solid rgba(16,120,90,0.18)', background: active ? 'rgba(16,185,129,0.14)' : 'rgba(255,255,255,0.85)', color: active ? '#0c6b52' : '#5c6f68' }}
-                          >
-                            {opt.label}
-                          </button>
-                        );
-                      })}
                     </div>
                   </div>
 

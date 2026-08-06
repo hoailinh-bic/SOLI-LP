@@ -94,8 +94,8 @@ export default function App() {
   const handleLeadCreate = async (
     name: string,
     phone: string,
-    bizName: string,
-    branches: '1' | '2-3' | 'over-3',
+    bizName?: string,
+    branches?: '1' | '2-3' | 'over-3',
     source: 'demo_form' | 'resource_download' = 'demo_form',
     email?: string
   ): Promise<{ success: boolean; message?: string }> => {
@@ -111,8 +111,8 @@ export default function App() {
       id: `LD-${Math.floor(1000 + Math.random() * 9000)}`,
       fullName: name,
       phone: phone,
-      businessName: bizName,
-      branches: branches,
+      businessName: bizName || '',
+      branches: branches || '1',
       submittedAt: timeStr,
       source: source,
       email: email,
@@ -125,20 +125,26 @@ export default function App() {
     // Content-Type text/plain avoids the CORS preflight that Apps Script cannot answer.
     try {
       const webhookUrl = localStorage.getItem("google_sheets_webhook_url") || SCRIPT_URL;
+      // Map only the fields provided by the submitting form. The demo/registration
+      // form now sends just Họ và tên (fullName) + Số điện thoại (phone); optional
+      // businessName / branches / email are included only when supplied (e.g. the
+      // resource-download form or the Hero quick-demo action).
+      const payload: Record<string, string> = {
+        fullName: name,
+        phone: phone,
+        submittedAt: timeStr,
+        source: source
+      };
+      if (bizName) payload.businessName = bizName;
+      if (branches) payload.branches = branches;
+      if (email) payload.email = email;
+
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
           "Content-Type": "text/plain;charset=utf-8"
         },
-        body: JSON.stringify({
-          fullName: name,
-          phone: phone,
-          businessName: bizName,
-          branches: branches,
-          submittedAt: timeStr,
-          source: source,
-          email: email || ""
-        })
+        body: JSON.stringify(payload)
       });
       const text = await response.text();
       console.log("Google Sheets sync response:", text);
