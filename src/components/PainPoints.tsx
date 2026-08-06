@@ -46,13 +46,13 @@ const cards: CardCfg[] = [
     index: '01', accent: '#c9522f', accentSoft: 'rgba(222,110,75,0.12)', gradFrom: '#f3a583', gradTo: '#de6e4b', glowRgba: 'rgba(222,110,75,0.7)',
     icon: <ClockIcon />,
     stat: (<><span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 44, lineHeight: 1, letterSpacing: '-1.4px', color: '#c9522f' }}>5+</span><span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 17, letterSpacing: '0.4px', color: '#c9522f' }}>PHÚT</span></>),
-    title: 'Chậm phản hồi', points: ['Mất lead', 'Mất doanh thu']
+    title: 'Chậm phản hồi', points: ['Mất khách hàng', 'Mất doanh thu']
   },
   {
     index: '02', accent: '#3d4a75', accentSoft: 'rgba(61,74,117,0.12)', gradFrom: '#6b7bb0', gradTo: '#3d4a75', glowRgba: 'rgba(61,74,117,0.7)',
     icon: <MoonIcon />,
     stat: (<><span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 17, letterSpacing: '0.4px', color: '#3d4a75' }}>Sau</span><span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 44, lineHeight: 1, letterSpacing: '-1.4px', color: '#3d4a75' }}>21h</span></>),
-    title: 'Không ai trả lời', points: ['Lead ngoài giờ bị bỏ lỡ', 'Giảm tỷ lệ đặt lịch']
+    title: 'Không ai trả lời', points: ['Khách hàng ngoài giờ bị bỏ lỡ', 'Giảm tỷ lệ đặt lịch']
   },
   {
     index: '03', accent: '#a9761f', accentSoft: 'rgba(201,143,44,0.14)', gradFrom: '#e6b45a', gradTo: '#c98f2c', glowRgba: 'rgba(201,143,44,0.7)',
