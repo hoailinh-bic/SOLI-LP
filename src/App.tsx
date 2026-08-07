@@ -1,17 +1,23 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import PainPoints from './components/PainPoints';
-import HowItWorks from './components/HowItWorks';
-import WhySoli from './components/WhySoli';
-import Pricing from './components/Pricing';
-import CTASection from './components/CTASection';
-import Footer from './components/Footer';
-import GoogleSheetsConfigModal from './components/GoogleSheetsConfigModal';
-import DownloadPopup from './components/DownloadPopup';
 import { Lead } from './types';
 import { Sparkles, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 import { smoothScrollToId } from './lib/smoothScroll';
+
+// Below-the-fold sections are code-split so the initial JS bundle that must
+// download + execute before the Hero (which contains the LCP text) renders is as
+// small as possible. The Hero fills the viewport (min-height:100vh), so these
+// lazy sections mount below the fold — no visible layout shift, and no change to
+// UI, content, forms, GTM or GA4.
+const PainPoints = lazy(() => import('./components/PainPoints'));
+const HowItWorks = lazy(() => import('./components/HowItWorks'));
+const WhySoli = lazy(() => import('./components/WhySoli'));
+const Pricing = lazy(() => import('./components/Pricing'));
+const CTASection = lazy(() => import('./components/CTASection'));
+const Footer = lazy(() => import('./components/Footer'));
+const GoogleSheetsConfigModal = lazy(() => import('./components/GoogleSheetsConfigModal'));
+const DownloadPopup = lazy(() => import('./components/DownloadPopup'));
 
 // Google Apps Script Web App endpoint (same webhook used by the download form).
 // Leads are posted directly from the browser so the static production build
@@ -217,34 +223,40 @@ export default function App() {
         {/* HERO SECTION */}
         <Hero onOpenDemo={handleScrollToForm} onLeadCreate={handleLeadCreate} />
 
-        {/* PAIN POINT SECTION */}
-        <PainPoints />
+        {/* Below-the-fold sections — code-split (lazy) to shrink the initial JS bundle */}
+        <Suspense fallback={null}>
+          {/* PAIN POINT SECTION */}
+          <PainPoints />
 
-        {/* HOW IT WORKS SECTION */}
-        <HowItWorks />
+          {/* HOW IT WORKS SECTION */}
+          <HowItWorks />
 
-        {/* WHY SOLI AI SECTION */}
-        <WhySoli />
+          {/* WHY SOLI AI SECTION */}
+          <WhySoli />
 
-        {/* PRICING SECTION */}
-        <Pricing onOpenDemo={handleScrollToForm} />
+          {/* PRICING SECTION */}
+          <Pricing onOpenDemo={handleScrollToForm} />
 
-        {/* CTA & TWO CONVERSION FORM CARDS */}
-        <CTASection onLeadCreate={handleLeadCreate} formRef={formRef} />
+          {/* CTA & TWO CONVERSION FORM CARDS */}
+          <CTASection onLeadCreate={handleLeadCreate} formRef={formRef} />
+        </Suspense>
 
       </main>
 
-      {/* FOOTER */}
-      <Footer />
+      {/* Footer + modals/popup — code-split (lazy) */}
+      <Suspense fallback={null}>
+        {/* FOOTER */}
+        <Footer />
 
-      {/* Google Sheets Config Modal */}
-      <GoogleSheetsConfigModal
-        isOpen={isSheetsModalOpen}
-        onClose={() => setIsSheetsModalOpen(false)}
-      />
+        {/* Google Sheets Config Modal */}
+        <GoogleSheetsConfigModal
+          isOpen={isSheetsModalOpen}
+          onClose={() => setIsSheetsModalOpen(false)}
+        />
 
-      {/* Entry popup — free e-book download (mirrors the download section) */}
-      <DownloadPopup />
+        {/* Entry popup — free e-book download (mirrors the download section) */}
+        <DownloadPopup />
+      </Suspense>
 
     </div>
   );
