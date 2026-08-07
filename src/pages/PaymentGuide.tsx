@@ -231,7 +231,7 @@ export default function PaymentGuide() {
       {/* ══════ Header công khai ══════ */}
       <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b border-border-custom bg-white-custom/80 px-5 backdrop-blur-md backdrop-saturate-150">
         <Link to="/" className="soli-lift-sm inline-flex items-center" aria-label="Về trang chủ SOLI AI">
-          <img src="/logo.png" alt="SOLI AI" className="h-9 w-auto object-contain" />
+          <img src="/logo.webp" alt="SOLI AI" width={320} height={180} className="h-9 w-auto object-contain" />
         </Link>
         <span className="flex-1" />
         <Link

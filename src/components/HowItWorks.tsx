@@ -6,7 +6,7 @@ import React, { useState } from 'react';
  * and keep AI_IMAGE_SRC pointing at its path (served from the site root, e.g. "/ai-assistant.png").
  * While no image is present, a branded gradient placeholder is shown automatically.
  */
-const AI_IMAGE_SRC = '/ai-assistant.png';
+const AI_IMAGE_SRC = '/ai-assistant.webp';
 
 const SparkIcon = ({ size = 18, color = '#fff' }: { size?: number; color?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color}><path d="M12 2l1.9 5.6L19.5 9l-4.2 3.4L16 18l-4-3.2L8 18l.7-5.6L4.5 9l5.6-1.4z" /></svg>
@@ -105,6 +105,8 @@ export default function HowItWorks() {
                 <img
                   src={AI_IMAGE_SRC}
                   alt="Trợ lý ảo SOLI AI"
+                  loading="lazy"
+                  decoding="async"
                   onError={() => setImgOk(false)}
                   style={{ display: 'block', width: '100%', height: 560, objectFit: 'cover', borderRadius: 24 }}
                 />

@@ -35,7 +35,7 @@ export default function Footer() {
           {/* left · brand */}
           <div>
             <a href="#" className="soli-lift-sm" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
-              <img src="/logo.png" alt="SOLI AI" style={{ height: 40, width: 'auto', objectFit: 'contain', display: 'block' }} />
+              <img src="/logo.webp" alt="SOLI AI" loading="lazy" width={320} height={180} style={{ height: 40, width: 'auto', objectFit: 'contain', display: 'block' }} />
             </a>
             <p style={{ margin: '18px 0 0', maxWidth: 420, fontSize: 14.5, lineHeight: 1.7, color: 'rgba(214,235,226,0.78)', fontWeight: 500, textWrap: 'balance' } as React.CSSProperties}>
               Trợ lý tiếp đón khách hàng tự động thông minh, được thiết kế chuyên biệt cho các chuỗi dịch vụ làm đẹp.

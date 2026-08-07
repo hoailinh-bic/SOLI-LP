@@ -328,7 +328,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
             {/* RIGHT · ảnh minh hoạ spa (bo góc, viền trắng, shadow — đồng bộ card hiện có) */}
             <div style={{ position: 'relative', width: '100%' }}>
               <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', borderRadius: 26, overflow: 'hidden', border: '6px solid #ffffff', boxShadow: '0 30px 70px -34px rgba(11,74,57,0.5)', background: '#e7f4ec' }}>
-                <img src="/images/spa-booking.png" alt="Nhân viên spa hỗ trợ khách hàng đặt lịch trên máy tính bảng" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                <img src="/images/spa-booking.webp" alt="Nhân viên spa hỗ trợ khách hàng đặt lịch trên máy tính bảng" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
               </div>
             </div>
 

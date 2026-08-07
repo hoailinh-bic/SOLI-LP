@@ -39,8 +39,10 @@ export default function Header({ onOpenDemo, onOpenSheetsConfig, leadCount }: He
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0 select-none cursor-pointer">
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="Logo"
+              width={320}
+              height={180}
               className={styles.logo}
             />
           </a>
