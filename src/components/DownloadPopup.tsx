@@ -84,7 +84,6 @@ export default function DownloadPopup() {
   const [isClosing, setIsClosing] = useState(false);
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [submitted, setSubmitted] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [phoneError, setPhoneError] = useState('');
@@ -138,10 +137,6 @@ export default function DownloadPopup() {
       setIsOpen(false);
       setIsClosing(false);
     }, 270);
-  };
-
-  const handleDownloadBook = () => {
-    window.open(DOWNLOAD_URL, '_blank');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -206,10 +201,15 @@ export default function DownloadPopup() {
         }
 
         if (success) {
-          setSubmitted(true);
+          // Giữ nguyên logic tải/mở Ebook như hiện tại
           window.open(DOWNLOAD_URL, '_blank');
+          // Reset state form
           setEmail('');
           setPhone('');
+          setEmailError('');
+          setPhoneError('');
+          // Submit thành công -> tự động đóng toàn bộ popup (không hiển thị màn cảm ơn)
+          handleClose();
         } else {
           alert("Có lỗi xảy ra. Vui lòng thử lại.");
         }
@@ -293,19 +293,7 @@ export default function DownloadPopup() {
             <h3 style={{ margin: '13px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.4px', lineHeight: 1.26, color: '#0d2b22' }}>Tặng miễn phí Ebook AI dành cho Spa</h3>
             <p style={{ margin: '8px 0 0', fontSize: 12.5, lineHeight: 1.55, color: '#5c6f68', fontWeight: 500 }}>Khám phá cách tăng tỷ lệ chốt lịch và tối ưu vận hành với AI.</p>
 
-            {submitted ? (
-              <div className="animate-fade-in" style={{ marginTop: 16, background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.28)', borderRadius: 16, padding: 18, textAlign: 'center' }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" /></svg>
-                <h5 style={{ margin: '10px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 14, color: '#0d2b22' }}>Cảm ơn bạn đã đăng ký. Tài liệu đang được mở.</h5>
-                <p style={{ margin: '8px 0 0', fontSize: 12, lineHeight: 1.6, color: '#5c6f68', fontWeight: 500 }}>Hệ thống đang tự động tải cẩm nang về thiết bị của bạn. Nếu quá trình tải không tự động kích hoạt, vui lòng nhấn nút bên dưới để tải trực tiếp:</p>
-                <button onClick={handleDownloadBook} className="soli-lift-sm" style={{ marginTop: 14, width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '13px 16px', border: 'none', borderRadius: 12, background: 'linear-gradient(135deg,#10b981,#059669)', cursor: 'pointer', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 13, color: '#fff' }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v13M7 11l5 5 5-5M5 21h14" /></svg>
-                  TẢI TÀI LIỆU MIỄN PHÍ
-                </button>
-                <button onClick={() => setSubmitted(false)} style={{ marginTop: 10, background: 'none', border: 'none', color: '#0c6b52', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, cursor: 'pointer', textDecoration: 'underline' }}>[ Nhập lại thông tin khác ]</button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <label className="soli-input-wrap" style={{ ...inputWrap, marginTop: 16 }}>
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0c6b52" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3 7l9 6 9-6" /></svg>
                   <input
@@ -363,7 +351,6 @@ export default function DownloadPopup() {
                   </span>
                 </div>
               </form>
-            )}
           </div>
         </div>
       </div>
