@@ -15,6 +15,7 @@ const HowItWorks = lazy(() => import('./components/HowItWorks'));
 const WhySoli = lazy(() => import('./components/WhySoli'));
 const Pricing = lazy(() => import('./components/Pricing'));
 const CTASection = lazy(() => import('./components/CTASection'));
+const PaymentGuideSection = lazy(() => import('./components/PaymentGuideSection'));
 const Footer = lazy(() => import('./components/Footer'));
 const GoogleSheetsConfigModal = lazy(() => import('./components/GoogleSheetsConfigModal'));
 const DownloadPopup = lazy(() => import('./components/DownloadPopup'));
@@ -239,6 +240,9 @@ export default function App() {
 
           {/* CTA & TWO CONVERSION FORM CARDS */}
           <CTASection onLeadCreate={handleLeadCreate} formRef={formRef} />
+
+          {/* PAYMENT GUIDE SECTION — Hướng dẫn thanh toán */}
+          <PaymentGuideSection />
         </Suspense>
 
       </main>
