@@ -74,8 +74,8 @@ export default function WhySoli() {
 
       <div style={{ position: 'relative', zIndex: 2, maxWidth: 1160, margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: 'clamp(40px,5vw,58px)' }}>
-          <h2 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(30px,4vw,50px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22' }}>Vì sao bạn chọn <span style={{ color: '#059669' }}>SOLI AI</span>?</h2>
-          <p style={{ margin: '20px 0 0', maxWidth: 560, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Giải pháp thông minh được thiết kế chuyên biệt cho ngành làm đẹp.</p>
+          <h2 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(30px,4vw,50px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', textWrap: 'balance' } as React.CSSProperties}>Vì sao bạn chọn <span style={{ color: '#059669' }}>SOLI AI</span>?</h2>
+          <p style={{ margin: '20px 0 0', maxWidth: 560, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Giải pháp thông minh được thiết kế<br />chuyên biệt cho ngành làm đẹp.</p>
         </div>
 
         <div className="soli-why-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 'clamp(20px,2.4vw,26px)', alignItems: 'stretch' }}>
@@ -90,7 +90,7 @@ export default function WhySoli() {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 22 }}>
                 <span style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 14, background: 'linear-gradient(135deg,#10b981,#0d9488)', boxShadow: '0 12px 26px -10px rgba(16,163,127,0.7)' }}>{b.icon}</span>
-                <h3 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', lineHeight: 1.28, color: '#0d2b22' }}>{b.title}</h3>
+                <h3 style={{ margin: 0, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', lineHeight: 1.28, color: '#0d2b22', textWrap: 'balance' } as React.CSSProperties}>{b.title}</h3>
               </div>
 
               <p style={{ margin: '18px 0 0', fontSize: 14, lineHeight: 1.62, color: '#5c6f68', fontWeight: 500 }}>{b.desc}</p>

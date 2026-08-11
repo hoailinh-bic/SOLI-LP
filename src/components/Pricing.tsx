@@ -127,8 +127,8 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
             </span>
             <span style={{ fontFamily: "'Zalando Sans'", fontSize: 12, fontWeight: 700, letterSpacing: '1.1px', color: '#0c6b52' }}>BẢNG GIÁ DỊCH VỤ</span>
           </div>
-          <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.8vw,48px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22' }}>Đầu tư chi phí nhỏ — <span style={{ color: '#059669' }}>Thu về giá trị lớn</span></h2>
-          <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Chọn gói phù hợp với quy mô chuỗi spa của bạn. Nâng cấp linh hoạt bất cứ lúc nào.</p>
+          <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.8vw,48px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', textWrap: 'balance' } as React.CSSProperties}>Đầu tư chi phí nhỏ — <span style={{ color: '#059669' }}>Thu về giá trị lớn</span></h2>
+          <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Chọn gói phù hợp với quy mô chuỗi spa của bạn.<br />Nâng cấp linh hoạt bất cứ lúc nào.</p>
         </div>
 
         {/* pricing grid */}

@@ -75,8 +75,8 @@ export default function PainPoints() {
             </span>
             <span style={{ fontFamily: "'Zalando Sans'", fontSize: 12, fontWeight: 700, letterSpacing: '1.1px', color: '#0c6b52' }}>THÁCH THỨC VẬN HÀNH</span>
           </div>
-          <h2 style={{ margin: '26px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.5vw,46px)', lineHeight: 1.14, letterSpacing: '-1px', color: '#0d2b22', maxWidth: 880 }}>Nỗ lực marketing nhưng vẫn <span style={{ color: '#059669' }}>thất thoát khách hàng</span>?</h2>
-          <p style={{ margin: '22px 0 0', maxWidth: 640, fontSize: 17, lineHeight: 1.68, color: '#4a5f57', fontWeight: 500 }}>Mỗi khách hàng nhắn tin đều là một khoản đầu tư marketing. Khi phản hồi chậm, cơ hội chuyển đổi giảm xuống — doanh thu tiềm năng dễ dàng rơi vào tay đối thủ.</p>
+          <h2 style={{ margin: '26px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.5vw,46px)', lineHeight: 1.14, letterSpacing: '-1px', color: '#0d2b22', maxWidth: 880, textWrap: 'balance' } as React.CSSProperties}>Nỗ lực marketing nhưng vẫn <span style={{ color: '#059669' }}>thất thoát khách hàng</span>?</h2>
+          <p style={{ margin: '22px 0 0', maxWidth: 640, fontSize: 17, lineHeight: 1.68, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Mỗi khách hàng nhắn tin đều là một khoản đầu tư marketing.<br />Khi phản hồi chậm, cơ hội chuyển đổi giảm xuống — doanh thu tiềm năng dễ dàng rơi vào tay đối thủ.</p>
         </div>
 
         <div className="soli-cards-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 'clamp(20px,2.4vw,28px)', alignItems: 'stretch' }}>
@@ -89,7 +89,7 @@ export default function PainPoints() {
 
               <div style={{ marginTop: 24, display: 'flex', alignItems: 'baseline', gap: 9 }}>{c.stat}</div>
 
-              <h3 style={{ margin: '14px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', lineHeight: 1.28, color: '#0d2b22' }}>{c.title}</h3>
+              <h3 style={{ margin: '14px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', lineHeight: 1.28, color: '#0d2b22', textWrap: 'balance' } as React.CSSProperties}>{c.title}</h3>
 
               <div style={{ height: 1, margin: '22px 0 18px', background: `linear-gradient(90deg, ${c.accent}47, transparent)` }} />
 

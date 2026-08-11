@@ -73,8 +73,8 @@ export default function HowItWorks() {
             </span>
             <span style={{ fontFamily: "'Zalando Sans'", fontSize: 12, fontWeight: 700, letterSpacing: '1.1px', color: '#0c6b52' }}>QUY TRÌNH HOẠT ĐỘNG</span>
           </div>
-          <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(30px,4vw,50px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', maxWidth: 820 }}>SOLI AI hoạt động <span style={{ color: '#059669' }}>như thế nào</span>?</h2>
-          <p style={{ margin: '20px 0 0', maxWidth: 600, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Quy trình khép kín, tự động từ khâu tiếp nhận tin nhắn đầu tiên đến khi khách bước chân vào cửa hàng của bạn.</p>
+          <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(30px,4vw,50px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', maxWidth: 820, textWrap: 'balance' } as React.CSSProperties}>SOLI AI hoạt động <span style={{ color: '#059669' }}>như thế nào</span>?</h2>
+          <p style={{ margin: '20px 0 0', maxWidth: 600, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Quy trình khép kín, tự động từ khâu tiếp nhận tin nhắn đầu tiên<br />đến khi khách bước chân vào cửa hàng của bạn.</p>
         </div>
 
         {/* 2-col: steps + AI illustration */}
@@ -89,7 +89,7 @@ export default function HowItWorks() {
                 <span style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 54, height: 54, borderRadius: 16, background: s.highlighted ? 'linear-gradient(135deg,#10b981,#059669)' : 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(236,253,245,0.9))', border: s.highlighted ? 'none' : '1px solid rgba(16,185,129,0.28)', boxShadow: s.highlighted ? '0 14px 28px -10px rgba(16,163,127,0.7)' : '0 12px 26px -14px rgba(16,120,90,0.5)' }}>{s.icon}</span>
                 <div style={{ flex: 1, padding: '20px 24px', borderRadius: 20, background: s.highlighted ? 'linear-gradient(160deg, rgba(236,253,245,0.95), rgba(209,250,229,0.8))' : 'linear-gradient(160deg, rgba(255,255,255,0.88), rgba(255,255,255,0.66))', border: s.highlighted ? '1px solid rgba(16,185,129,0.4)' : '1px solid rgba(255,255,255,0.9)', boxShadow: s.highlighted ? '0 24px 50px -26px rgba(16,120,90,0.5), inset 0 1px 0 rgba(255,255,255,0.9)' : '0 20px 46px -30px rgba(11,74,57,0.45), inset 0 1px 0 rgba(255,255,255,0.9)', backdropFilter: 'blur(14px)' }}>
                   <div style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11.5, letterSpacing: '1.2px', color: s.highlighted ? '#059669' : '#10a37f' }}>{s.label}</div>
-                  <h3 style={{ margin: '6px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 18, letterSpacing: '-0.3px', lineHeight: 1.3, color: '#0d2b22' }}>{s.title}</h3>
+                  <h3 style={{ margin: '6px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 18, letterSpacing: '-0.3px', lineHeight: 1.3, color: '#0d2b22', textWrap: 'balance' } as React.CSSProperties}>{s.title}</h3>
                   <p style={{ margin: '8px 0 0', fontSize: 14, lineHeight: 1.62, color: s.highlighted ? '#39584b' : '#5c6f68', fontWeight: 500 }}>{s.desc}</p>
                 </div>
               </div>

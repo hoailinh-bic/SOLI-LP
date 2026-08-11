@@ -170,8 +170,8 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
               </span>
               <span style={{ fontFamily: "'Zalando Sans'", fontSize: 12, fontWeight: 700, letterSpacing: '1.1px', color: '#0c6b52' }}>SẴN SÀNG CHUYỂN ĐỔI</span>
             </div>
-            <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.8vw,48px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', maxWidth: 860 }}>Tối ưu tiếp đón khách hàng —<br /><span style={{ color: '#059669' }}>Gia tăng doanh thu của bạn!</span></h2>
-            <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500 }}>Không còn nỗi lo bỏ lỡ khách hàng hay phản hồi trì trệ.<br />Hãy lựa chọn giải pháp phù hợp nhất với cửa hàng của bạn ngay hôm nay!</p>
+            <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.8vw,48px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', maxWidth: 860, textWrap: 'balance' } as React.CSSProperties}>Tối ưu tiếp đón khách hàng —<br /><span style={{ color: '#059669' }}>Gia tăng doanh thu của bạn!</span></h2>
+            <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Không còn nỗi lo bỏ lỡ khách hàng hay phản hồi trì trệ.<br />Hãy lựa chọn giải pháp phù hợp nhất với cửa hàng của bạn ngay hôm nay!</p>
           </div>
 
           {/* Đăng ký trải nghiệm */}
@@ -260,7 +260,7 @@ export default function CTASection({ onLeadCreate, formRef }: CTASectionProps) {
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
                 <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.8px', color: '#0c6b52' }}>CẨM NANG MIỄN PHÍ</span>
               </div>
-              <h3 style={{ margin: '22px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.3px', lineHeight: 1.34, color: '#0d2b22' }}>Tải tài liệu "Ứng dụng AI cho ngành Spa: Cánh tay phải đắc lực giúp chuỗi dịch vụ bứt phá doanh thu"</h3>
+              <h3 style={{ margin: '22px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 19, letterSpacing: '-0.3px', lineHeight: 1.34, color: '#0d2b22', textWrap: 'pretty' } as React.CSSProperties}>Tải tài liệu "Ứng dụng AI cho ngành Spa: Cánh tay phải đắc lực giúp chuỗi dịch vụ bứt phá doanh thu"</h3>
               <p style={{ margin: '12px 0 0', fontSize: 13.5, lineHeight: 1.62, color: '#5c6f68', fontWeight: 500 }}>Bộ tài liệu giúp bạn khai thác AI tự động hóa vận hành, tối ưu chăm sóc khách hàng, nâng cao hiệu quả doanh thu và tạo nền tảng tăng trưởng doanh thu bền vững.</p>
               {downloadSubmitted ? (
                 <div className="animate-fade-in" style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.28)', borderRadius: 16, padding: 20, textAlign: 'center' }}>
