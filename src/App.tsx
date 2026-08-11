@@ -18,6 +18,7 @@ const CTASection = lazy(() => import('./components/CTASection'));
 const Footer = lazy(() => import('./components/Footer'));
 const GoogleSheetsConfigModal = lazy(() => import('./components/GoogleSheetsConfigModal'));
 const DownloadPopup = lazy(() => import('./components/DownloadPopup'));
+const ToastNotification = lazy(() => import('./components/ToastNotification'));
 
 // Google Apps Script Web App endpoint (same webhook used by the download form).
 // Leads are posted directly from the browser so the static production build
@@ -256,6 +257,9 @@ export default function App() {
 
         {/* Entry popup — free e-book download (mirrors the download section) */}
         <DownloadPopup />
+
+        {/* Floating toast notifications (bottom-left, social proof) */}
+        <ToastNotification />
       </Suspense>
 
     </div>
