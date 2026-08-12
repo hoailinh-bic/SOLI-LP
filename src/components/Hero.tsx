@@ -143,8 +143,8 @@ export default function Hero({ onOpenDemo, onLeadCreate }: HeroProps) {
             </span>
           </h1>
 
-          <p style={{ margin: '38px 0 0', maxWidth: 500, fontSize: 19, lineHeight: 1.68, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>
-            <span style={{ color: '#0d2b22', fontWeight: 700 }}>SOLI AI</span> là trợ lý tiếp đón khách hàng tự động thông minh,<br />được thiết kế chuyên biệt cho <span style={{ color: '#0d2b22', fontWeight: 700 }}>chuỗi dịch vụ làm đẹp.</span>
+          <p style={{ margin: '38px 0 0', maxWidth: 520, fontSize: 19, lineHeight: 1.4, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>
+            <span style={{ color: '#0d2b22', fontWeight: 700 }}>SOLI AI</span> là trợ lý tiếp đón khách hàng tự động thông minh, được thiết kế chuyên biệt cho <span style={{ color: '#0d2b22', fontWeight: 700, whiteSpace: 'nowrap' }}>chuỗi dịch vụ làm đẹp.</span>
           </p>
 
           {/* CTA cluster */}
