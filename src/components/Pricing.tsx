@@ -83,10 +83,10 @@ const plans: Plan[] = [
     id: 'professional',
     segment: 'Chuỗi spa quy mô lớn',
     name: 'Chuyên Nghiệp',
-    price: 'Liên hệ',
+    price: '',
     period: '',
     features: [
-      { text: 'Nhiều tính năng nâng cao và riêng biệt', strong: true }
+      { text: 'Tính năng nâng cao & chuyên biệt', strong: true }
     ],
     contact: (
       <>
@@ -162,17 +162,16 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                   </div>
                 )}
 
-                {/* segment pill */}
-                <div style={{ display: 'inline-flex', alignSelf: 'flex-start', marginTop: plan.topFlag ? 8 : 2, padding: '6px 12px', borderRadius: 999, background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.28)', fontFamily: "'Zalando Sans'", fontWeight: 700, fontSize: 11, letterSpacing: '0.2px', color: '#0c6b52' }}>{plan.segment}</div>
-
                 {/* name */}
-                <h3 style={{ margin: '14px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', color: '#0d2b22' }}>{plan.name}</h3>
+                <h3 style={{ margin: `${plan.topFlag ? 14 : 4}px 0 0`, fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 20, letterSpacing: '-0.3px', color: '#0d2b22' }}>{plan.name}</h3>
 
                 {/* price */}
-                <div style={{ marginTop: 8, display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                  <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: plan.isTrial ? 34 : 30, lineHeight: 1, letterSpacing: '-1.3px', color: '#0d2b22' }}>{plan.price}</span>
-                  {plan.period && <span style={{ fontSize: 13, color: featured ? '#39584b' : '#5c6f68', fontWeight: 500 }}>{plan.period}</span>}
-                </div>
+                {plan.price && (
+                  <div style={{ marginTop: 8, display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                    <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: plan.isTrial ? 34 : 30, lineHeight: 1, letterSpacing: '-1.3px', color: '#0d2b22' }}>{plan.price}</span>
+                    {plan.period && <span style={{ fontSize: 13, color: featured ? '#39584b' : '#5c6f68', fontWeight: 500 }}>{plan.period}</span>}
+                  </div>
+                )}
 
                 {/* price note / includes note */}
                 {plan.priceNote && (
