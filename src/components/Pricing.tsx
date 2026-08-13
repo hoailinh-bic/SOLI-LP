@@ -36,8 +36,8 @@ const plans: Plan[] = [
     period: '/ 7 ngày',
     messages: '200 tin nhắn AI / 7 ngày',
     features: [
-      { text: 'SOLI AI tư vấn và chốt lịch 24/7' },
-      { text: 'SOLI AI đề xuất kịch bản chốt khách cho tư vấn viên' },
+      { text: 'AI tư vấn & chốt lịch 24/7' },
+      { text: 'AI đề xuất kịch bản chốt khách cho tư vấn viên' },
       { text: 'Tích hợp đa nền tảng (Zalo OA & Facebook)' },
       { text: 'Chat đa kênh miễn phí' }
     ],
@@ -54,8 +54,8 @@ const plans: Plan[] = [
     topFlag: '★ Phổ biến nhất',
     messages: '1.000 tin nhắn AI / tháng',
     features: [
-      { text: 'SOLI AI tư vấn và chốt lịch 24/7' },
-      { text: 'SOLI AI đề xuất kịch bản chốt khách cho tư vấn viên' },
+      { text: 'AI tư vấn & chốt lịch 24/7' },
+      { text: 'AI đề xuất kịch bản chốt khách cho tư vấn viên' },
       { text: 'Tích hợp đa nền tảng (Zalo OA & Facebook)' },
       { text: 'Chat đa kênh miễn phí' }
     ],
@@ -71,8 +71,8 @@ const plans: Plan[] = [
     period: '/ tháng',
     messages: '3.500 tin nhắn AI / tháng',
     features: [
-      { text: 'SOLI AI tư vấn và chốt lịch 24/7' },
-      { text: 'SOLI AI đề xuất kịch bản chốt khách cho tư vấn viên' },
+      { text: 'AI tư vấn & chốt lịch 24/7' },
+      { text: 'AI đề xuất kịch bản chốt khách cho tư vấn viên' },
       { text: 'Tích hợp đa nền tảng (Zalo OA & Facebook)' },
       { text: 'Chat đa kênh miễn phí' }
     ],
