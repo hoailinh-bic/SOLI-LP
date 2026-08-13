@@ -17,6 +17,8 @@ interface Plan {
   period: string;
   priceNote?: string;     // e.g. "Không cần thẻ · không tự trừ tiền"
   includesNote?: string;  // e.g. "Mọi thứ ở Trải Nghiệm, cộng:"
+  messages?: string;      // distinct AI message-count line (plans 1-3)
+  contact?: React.ReactNode; // contact block (enterprise plan)
   features: Feature[];
   cta: string;            // button label
   note: string;           // small caption under the button
@@ -32,12 +34,12 @@ const plans: Plan[] = [
     name: 'Trải Nghiệm',
     price: '0đ',
     period: '/ 7 ngày',
-    priceNote: 'Không cần thẻ · không tự trừ tiền',
+    messages: '200 tin nhắn AI / 7 ngày',
     features: [
-      { text: 'AI tự chốt lịch hẹn 24/7' },
-      { text: '~200 tin AI (trong 7 ngày)' },
-      { text: '1 cơ sở · Zalo OA + Facebook' },
-      { text: 'Nhắc hẹn cơ bản · ROI cơ bản' }
+      { text: 'SOLI AI tư vấn và chốt lịch 24/7' },
+      { text: 'SOLI AI đề xuất kịch bản chốt khách cho tư vấn viên' },
+      { text: 'Tích hợp đa nền tảng (Zalo OA & Facebook)' },
+      { text: 'Chat đa kênh miễn phí' }
     ],
     cta: 'DÙNG THỬ MIỄN PHÍ NGAY',
     note: '* Hệ thống sẽ tạm khóa khi sử dụng hết 200 tin hoặc hết hạn 7 ngày.',
@@ -47,48 +49,59 @@ const plans: Plan[] = [
     id: 'starter',
     segment: 'Chuỗi spa mới phát triển',
     name: 'Khởi Động',
-    price: '249.000đ',
+    price: '290.000đ',
     period: '/ tháng',
-    includesNote: 'Mọi thứ ở Trải Nghiệm, cộng:',
+    topFlag: '★ Phổ biến nhất',
+    messages: '1.000 tin nhắn AI / tháng',
     features: [
-      { text: '1.000 tin AI / tháng' },
-      { text: '3 cơ sở · 5 kênh (Zalo + FB)' }
+      { text: 'SOLI AI tư vấn và chốt lịch 24/7' },
+      { text: 'SOLI AI đề xuất kịch bản chốt khách cho tư vấn viên' },
+      { text: 'Tích hợp đa nền tảng (Zalo OA & Facebook)' },
+      { text: 'Chat đa kênh miễn phí' }
     ],
     cta: 'KÍCH HOẠT GÓI KHỞI ĐỘNG',
-    note: '* Chi phí vượt trần: 300đ / tin nhắn AI phát sinh.'
+    note: '',
+    highlighted: true
   },
   {
     id: 'growth',
     segment: 'Chuỗi spa đang mở rộng',
     name: 'Tăng Trưởng',
-    price: '990.000đ',
+    price: '490.000đ',
     period: '/ tháng',
-    includesNote: 'Mọi thứ ở Khởi Động, cộng:',
+    messages: '3.500 tin nhắn AI / tháng',
     features: [
-      { text: '5.000 tin AI / tháng' },
-      { text: '5 cơ sở · 10 kênh' }
+      { text: 'SOLI AI tư vấn và chốt lịch 24/7' },
+      { text: 'SOLI AI đề xuất kịch bản chốt khách cho tư vấn viên' },
+      { text: 'Tích hợp đa nền tảng (Zalo OA & Facebook)' },
+      { text: 'Chat đa kênh miễn phí' }
     ],
     cta: 'BỨT PHÁ DOANH SỐ NGAY',
-    note: '* Chi phí vượt trần: 300đ / tin nhắn AI phát sinh.'
+    note: ''
   },
   {
     id: 'professional',
     segment: 'Chuỗi spa quy mô lớn',
     name: 'Chuyên Nghiệp',
-    price: '1.390.000đ',
-    period: '/ tháng',
-    topFlag: '★ Phổ biến nhất',
-    includesNote: 'Mọi thứ ở Tăng Trưởng, cộng:',
+    price: 'Liên hệ',
+    period: '',
     features: [
-      { text: '8.000 tin AI / tháng' },
-      { text: 'Tới 10 cơ sở · 30 kênh · +Instagram' },
-      { text: 'Smart-routing chéo cơ sở', strong: true },
-      { text: 'Copilot + hàng đợi lead ≤15 phút', strong: true },
-      { text: 'ROI nâng cao + so sánh chéo cơ sở', strong: true }
+      { text: 'Nhiều tính năng nâng cao và riêng biệt', strong: true }
     ],
+    contact: (
+      <>
+        Liên hệ đội ngũ SOLI AI tại{' '}
+        <a
+          href="mailto:hotro@soliai.vn"
+          style={{ color: '#059669', fontWeight: 700, textDecoration: 'none' }}
+        >
+          hotro@soliai.vn
+        </a>{' '}
+        để được hỗ trợ 1:1.
+      </>
+    ),
     cta: 'NÂNG CẤP TRẢI NGHIỆM CHUYÊN NGHIỆP',
-    note: '* Chi phí vượt trần: 300đ / tin nhắn AI phát sinh.',
-    highlighted: true
+    note: ''
   }
 ];
 
@@ -128,7 +141,7 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
             <span style={{ fontFamily: "'Zalando Sans'", fontSize: 12, fontWeight: 700, letterSpacing: '1.1px', color: '#0c6b52' }}>BẢNG GIÁ DỊCH VỤ</span>
           </div>
           <h2 style={{ margin: '24px 0 0', fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: 'clamp(28px,3.8vw,48px)', lineHeight: 1.1, letterSpacing: '-1.1px', color: '#0d2b22', textWrap: 'balance' } as React.CSSProperties}>Đầu tư chi phí nhỏ — <span style={{ color: '#059669' }}>Thu về giá trị lớn</span></h2>
-          <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Chọn gói phù hợp với quy mô chuỗi spa của bạn.<br />Nâng cấp linh hoạt bất cứ lúc nào.</p>
+          <p style={{ margin: '20px 0 0', maxWidth: 620, fontSize: 17, lineHeight: 1.65, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>Chọn gói phù hợp với quy mô spa của bạn.<br />Nâng cấp linh hoạt bất cứ lúc nào.</p>
         </div>
 
         {/* pricing grid */}
@@ -158,7 +171,7 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                 {/* price */}
                 <div style={{ marginTop: 8, display: 'flex', alignItems: 'baseline', gap: 6 }}>
                   <span style={{ fontFamily: "'Zalando Sans'", fontWeight: 800, fontSize: plan.isTrial ? 34 : 30, lineHeight: 1, letterSpacing: '-1.3px', color: '#0d2b22' }}>{plan.price}</span>
-                  <span style={{ fontSize: 13, color: featured ? '#39584b' : '#5c6f68', fontWeight: 500 }}>{plan.period}</span>
+                  {plan.period && <span style={{ fontSize: 13, color: featured ? '#39584b' : '#5c6f68', fontWeight: 500 }}>{plan.period}</span>}
                 </div>
 
                 {/* price note / includes note */}
@@ -167,6 +180,11 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                 )}
                 {plan.includesNote && (
                   <div style={{ marginTop: 12, fontSize: 12.5, color: '#39584b', fontWeight: 600 }}>{plan.includesNote}</div>
+                )}
+
+                {/* AI message-count line (visible, but secondary to the price) */}
+                {plan.messages && (
+                  <div style={{ marginTop: 12, fontFamily: "'Zalando Sans'", fontSize: 15, fontWeight: 700, letterSpacing: '-0.2px', color: '#0c6b52' }}>{plan.messages}</div>
                 )}
 
                 {/* features */}
@@ -178,6 +196,11 @@ export default function Pricing({ onOpenDemo }: PricingProps) {
                     </div>
                   ))}
                 </div>
+
+                {/* contact info (enterprise plan) */}
+                {plan.contact && (
+                  <div style={{ marginTop: 14, fontSize: 13, lineHeight: 1.55, color: '#39584b', fontWeight: 500 }}>{plan.contact}</div>
+                )}
 
                 {/* CTA button (pushed to the bottom so buttons align across cards) */}
                 <button
