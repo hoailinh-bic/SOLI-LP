@@ -144,7 +144,7 @@ export default function Hero({ onOpenDemo, onLeadCreate }: HeroProps) {
           </h1>
 
           <p style={{ margin: '38px 0 0', maxWidth: 520, fontSize: 19, lineHeight: 1.4, color: '#4a5f57', fontWeight: 500, textWrap: 'pretty' } as React.CSSProperties}>
-            <span style={{ color: '#0d2b22', fontWeight: 700 }}>SOLI AI</span> là trợ lý tiếp đón khách hàng tự động thông minh, được thiết kế chuyên biệt cho <span style={{ color: '#0d2b22', fontWeight: 700, whiteSpace: 'nowrap' }}>chuỗi dịch vụ làm đẹp.</span>
+            <span style={{ color: '#0d2b22', fontWeight: 700 }}>SOLI AI</span> là trợ lý tiếp đón khách hàng thông minh, tự động tư vấn và chốt lịch 24/7, được thiết kế chuyên biệt cho <span style={{ color: '#0d2b22', fontWeight: 700 }}>ngành dịch vụ làm đẹp như Spa, Nail và Salon.</span>
           </p>
 
           {/* CTA cluster */}
